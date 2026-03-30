@@ -1,0 +1,13 @@
+# HARDWARE
+# contact_threshold: 6.0 #20.0 # - for Hs=0.13 #3.0 - for Hs=0.11
+
+# camera_offset_x: 0.26045
+# camera_offset_y: 0.01675
+# camera_offset_z: -0.01
+
+# SIMULATION
+contact_threshold: 6.0 #20.0 # - for Hs=0.13 #3.0 - for Hs=0.11
+
+camera_offset_x: 0.0
+camera_offset_y: 0.0
+camera_offset_z: 0.0

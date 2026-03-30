@@ -1,0 +1,19 @@
+# HARDWARE
+# do_nothing_kp: 0.0
+# do_nothing_kd: 0.6
+
+# action1_kp: 12.0
+# action1_kd: 0.4
+
+# action2_kp: 12.0
+# action2_kd: 0.4
+
+# SIMULATION
+do_nothing_kp: 0.0
+do_nothing_kd: 0.0
+
+action1_kp: 2.0
+action1_kd: 0.05
+
+action2_kp: 24.0
+action2_kd: 0.05

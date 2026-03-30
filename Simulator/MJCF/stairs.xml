@@ -1,0 +1,112 @@
+<mujoco model="{name} stairs scene">
+  <include file="{path}" />
+
+  <statistic center="1.72 0 0.1125" extent="15" meansize="0.04" />
+
+  <visual>
+    <headlight diffuse="0.0 0.0 0.0" ambient="0.0 0.0 0.0" specular="0.0 0.0 0.0" />
+    <global azimuth="220" elevation="-10" />
+    <quality shadowsize="8192" />
+  </visual>
+
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"
+     rgb2=".2 .3 .4" width="300" height="300" mark="edge" markrgb=".2 .3 .4"/>
+    <material name="grid" texture="grid" texrepeat="15 15" reflectance=".05"/>
+  </asset>
+
+  <asset>
+    <texture
+      type="skybox"
+      builtin="gradient"
+      rgb1="0.2 0.2 0.9"
+      rgb2="0.1 0.6 0.2"
+      width="512"
+      height="3072"
+    />
+    <material name="stairs_geom" rgba="0.70 0.45 0.20 1" />
+  </asset>
+
+  <worldbody>
+    <light
+      name="sun"
+      directional="true"
+      dir="-0.5 -0.4 -1"
+      diffuse="0.4 0.4 0.4"
+      specular="0.2 0.2 0.2"
+      ambient="0.01 0.01 0.01"
+      castshadow="true"
+    />
+
+    <light
+      name="spotlight1"
+      mode="targetbodycom"
+      target="base"
+      diffuse="0.2 0.2 0.2"
+      specular="0.1 0.1 0.1"
+      pos="0 -10 4"
+      cutoff="10"
+    />
+
+    <light
+      name="spotlight2"
+      mode="targetbodycom"
+      directional="true"
+      target="base"
+      diffuse="0.2 0.2 0.2"
+      specular="0.1 0.1 0.1"
+      pos="10 0 4"
+      dir="1 0 0"
+      cutoff="10"
+      castshadow="false"
+    />
+
+    <geom name="ground" type="plane" pos="0 0 0" size="15 15 0.1" material="grid"/>
+
+    <geom
+      name="step_1"
+      type="box"
+      pos="1.72 0 0.0225"
+      size="1.22 1.22 0.0225"
+      contype="1"
+      conaffinity="1"
+      material="stairs_geom"
+    />
+    <geom
+      name="step_2"
+      type="box"
+      pos="1.72 0 0.045"
+      size="1.04 1.04 0.045"
+      contype="1"
+      conaffinity="1"
+      material="stairs_geom"
+    />
+    <geom
+      name="step_3"
+      type="box"
+      pos="1.72 0 0.0675"
+      size="0.86 0.86 0.0675"
+      contype="1"
+      conaffinity="1"
+      material="stairs_geom"
+    />
+    <geom
+      name="step_4"
+      type="box"
+      pos="1.72 0 0.09"
+      size="0.68 0.68 0.09"
+      contype="1"
+      conaffinity="1"
+      material="stairs_geom"
+    />
+    <geom
+      name="step_5"
+      type="box"
+      pos="1.72 0 0.1125"
+      size="0.5 0.5 0.1125"
+      contype="1"
+      conaffinity="1"
+      material="stairs_geom"
+    />
+  </worldbody>
+</mujoco>

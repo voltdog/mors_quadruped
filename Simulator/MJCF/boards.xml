@@ -1,0 +1,309 @@
+<mujoco model="{name} boards scene">
+  <include file="{path}" />
+
+  <statistic center="1.8 0 0.616373" extent="15" meansize="0.04" />
+
+  <visual>
+    <headlight diffuse="0.0 0.0 0.0" ambient="0.0 0.0 0.0" specular="0.0 0.0 0.0" />
+    <global azimuth="220" elevation="-10" />
+    <quality shadowsize="8192" />
+  </visual>
+
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"
+     rgb2=".2 .3 .4" width="300" height="300" mark="edge" markrgb=".2 .3 .4"/>
+    <material name="grid" texture="grid" texrepeat="15 15" reflectance=".05"/>
+  </asset>
+
+  <asset>
+    <texture
+      type="skybox"
+      builtin="gradient"
+      rgb1="0.2 0.2 0.9"
+      rgb2="0.1 0.6 0.2"
+      width="512"
+      height="3072"
+    />
+    <material name="board_wood" rgba="0.70 0.45 0.20 1" />
+    <material name="board_rubber" rgba="0.15 0.15 0.15 1" />
+    <material name="board_metal" rgba="0.63 0.66 0.72 1" />
+  </asset>
+
+  <worldbody>
+    <light
+      name="sun"
+      directional="true"
+      dir="-0.5 -0.4 -1"
+      diffuse="0.4 0.4 0.4"
+      specular="0.2 0.2 0.2"
+      ambient="0.01 0.01 0.01"
+      castshadow="true"
+    />
+
+    <light
+      name="spotlight1"
+      mode="targetbodycom"
+      target="base"
+      diffuse="0.2 0.2 0.2"
+      specular="0.1 0.1 0.1"
+      pos="0 -10 4"
+      cutoff="10"
+    />
+
+    <light
+      name="spotlight2"
+      mode="targetbodycom"
+      directional="true"
+      target="base"
+      diffuse="0.2 0.2 0.2"
+      specular="0.1 0.1 0.1"
+      pos="10 0 4"
+      dir="1 0 0"
+      cutoff="10"
+      castshadow="false"
+    />
+
+    <geom name="ground" type="plane" pos="0 0 0" size="15 15 0.1" material="grid"/>
+
+    <body name="board_1" pos="0.8 0.5669 0.781322" quat="-0.407665 -0.807233 -0.37738 0.19942">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="2.105462" diaginertia="0.006033 0.091912 0.097752" />
+      <geom
+        type="box"
+        size="0.361697 0.09197 0.011721"
+        contype="1"
+        conaffinity="1"
+        friction="1.35 0.03 0.02"
+        material="board_rubber"
+      />
+    </body>
+    <body name="board_2" pos="0.905263 0.258714 0.819748" quat="0.092871 0.783883 0.370271 -0.489695">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="2.846374" diaginertia="0.012778 0.111011 0.123162" />
+      <geom
+        type="box"
+        size="0.341572 0.114619 0.018176"
+        contype="1"
+        conaffinity="1"
+        friction="1 0.02 0.01"
+        material="board_wood"
+      />
+    </body>
+    <body name="board_3" pos="1.010526 -0.402827 0.679303" quat="0.847458 0.505441 -0.122817 -0.106113">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="3.426001" diaginertia="0.027044 0.155114 0.181631" />
+      <geom
+        type="box"
+        size="0.368234 0.153135 0.015189"
+        contype="1"
+        conaffinity="1"
+        friction="1 0.02 0.01"
+        material="board_wood"
+      />
+    </body>
+    <body name="board_4" pos="1.115789 0.077721 0.679696" quat="0.938681 0.122025 -0.227684 -0.228359">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="1.994697" diaginertia="0.008617 0.08292 0.09133" />
+      <geom
+        type="box"
+        size="0.352924 0.113154 0.012487"
+        contype="1"
+        conaffinity="1"
+        friction="1 0.02 0.01"
+        material="board_wood"
+      />
+    </body>
+    <body name="board_5" pos="1.221053 -0.274029 0.738491" quat="-0.464517 -0.779948 -0.279165 -0.313004">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="7.11223" diaginertia="0.056187 0.40852 0.46356" />
+      <geom
+        type="box"
+        size="0.41482 0.153161 0.015548"
+        contype="1"
+        conaffinity="1"
+        friction="0.75 0.015 0.008"
+        material="board_metal"
+      />
+    </body>
+    <body name="board_6" pos="1.326316 0.017096 0.617465" quat="0.476826 -0.80757 -0.279091 0.206341">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="3.384895" diaginertia="0.010236 0.201792 0.211716" />
+      <geom
+        type="box"
+        size="0.422739 0.09452 0.011766"
+        contype="1"
+        conaffinity="1"
+        friction="0.75 0.015 0.008"
+        material="board_metal"
+      />
+    </body>
+    <body name="board_7" pos="1.431579 -0.575285 0.765684" quat="-0.683024 0.412059 -0.091007 0.596157">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="7.500492" diaginertia="0.066248 0.399407 0.464358" />
+      <geom
+        type="box"
+        size="0.399366 0.161982 0.016103"
+        contype="1"
+        conaffinity="1"
+        friction="0.75 0.015 0.008"
+        material="board_metal"
+      />
+    </body>
+    <body name="board_8" pos="1.536842 0.219806 0.684455" quat="0.155096 0.024712 -0.623273 0.766071">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="3.526518" diaginertia="0.015714 0.115201 0.130127" />
+      <geom
+        type="box"
+        size="0.312516 0.11416 0.018305"
+        contype="1"
+        conaffinity="1"
+        friction="1.35 0.03 0.02"
+        material="board_rubber"
+      />
+    </body>
+    <body name="board_9" pos="1.642105 0.147736 0.694771" quat="-0.886327 0.173893 0.313591 0.292996">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="2.857437" diaginertia="0.013162 0.06415 0.076985" />
+      <geom
+        type="box"
+        size="0.259188 0.116821 0.013107"
+        contype="1"
+        conaffinity="1"
+        friction="0.75 0.015 0.008"
+        material="board_metal"
+      />
+    </body>
+    <body name="board_10" pos="1.747368 0.393823 0.716138" quat="0.739088 -0.645645 -0.181448 -0.062996">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="3.129691" diaginertia="0.015127 0.091296 0.106108" />
+      <geom
+        type="box"
+        size="0.295571 0.119789 0.012277"
+        contype="1"
+        conaffinity="1"
+        friction="0.75 0.015 0.008"
+        material="board_metal"
+      />
+    </body>
+    <body name="board_11" pos="1.852632 0.321697 0.858642" quat="0.043872 0.901798 0.102676 0.417484">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="4.368553" diaginertia="0.014715 0.287726 0.301451" />
+      <geom
+        type="box"
+        size="0.444127 0.098819 0.018433"
+        contype="1"
+        conaffinity="1"
+        friction="1.35 0.03 0.02"
+        material="board_rubber"
+      />
+    </body>
+    <body name="board_12" pos="1.957895 0.512313 0.756669" quat="-0.294373 -0.19931 -0.902551 -0.242943">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="3.191351" diaginertia="0.012726 0.197887 0.210274" />
+      <geom
+        type="box"
+        size="0.431118 0.108645 0.012618"
+        contype="1"
+        conaffinity="1"
+        friction="1.35 0.03 0.02"
+        material="board_rubber"
+      />
+    </body>
+    <body name="board_13" pos="2.063158 -0.103875 0.681159" quat="0.74108 -0.553092 -0.276581 0.26152">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="6.879759" diaginertia="0.03712 0.488002 0.523885" />
+      <geom
+        type="box"
+        size="0.461009 0.126162 0.016429"
+        contype="1"
+        conaffinity="1"
+        friction="0.75 0.015 0.008"
+        material="board_metal"
+      />
+    </body>
+    <body name="board_14" pos="2.168421 -0.445472 0.663759" quat="0.297473 -0.707416 -0.629305 0.122666">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="2.819699" diaginertia="0.013149 0.168348 0.181118" />
+      <geom
+        type="box"
+        size="0.422979 0.117423 0.014193"
+        contype="1"
+        conaffinity="1"
+        friction="1 0.02 0.01"
+        material="board_wood"
+      />
+    </body>
+    <body name="board_15" pos="2.273684 -0.22326 0.808176" quat="-0.707826 0.379011 0.505592 -0.315768">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="4.703114" diaginertia="0.014703 0.344789 0.358828" />
+      <geom
+        type="box"
+        size="0.468744 0.095745 0.014555"
+        contype="1"
+        conaffinity="1"
+        friction="0.75 0.015 0.008"
+        material="board_metal"
+      />
+    </body>
+    <body name="board_16" pos="2.378947 -0.031991 0.582805" quat="0.55648 -0.232873 -0.267278 0.75144">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="1.703048" diaginertia="0.004649 0.036264 0.040691" />
+      <geom
+        type="box"
+        size="0.252359 0.089413 0.013977"
+        contype="1"
+        conaffinity="1"
+        friction="1.35 0.03 0.02"
+        material="board_rubber"
+      />
+    </body>
+    <body name="board_17" pos="2.484211 -0.328924 0.817012" quat="0.336345 0.070448 -0.937914 -0.047173">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="4.836411" diaginertia="0.024815 0.343891 0.367904" />
+      <geom
+        type="box"
+        size="0.46159 0.123061 0.015767"
+        contype="1"
+        conaffinity="1"
+        friction="1.35 0.03 0.02"
+        material="board_rubber"
+      />
+    </body>
+    <body name="board_18" pos="2.589474 0.463431 0.82712" quat="0.278299 0.807297 -0.075068 -0.514962">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="1.566721" diaginertia="0.004803 0.062609 0.067264" />
+      <geom
+        type="box"
+        size="0.346039 0.095164 0.011894"
+        contype="1"
+        conaffinity="1"
+        friction="1 0.02 0.01"
+        material="board_wood"
+      />
+    </body>
+    <body name="board_19" pos="2.694737 -0.520475 0.866373" quat="0.51605 -0.742927 -0.293781 -0.308942">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="5.179726" diaginertia="0.043878 0.216652 0.259965" />
+      <geom
+        type="box"
+        size="0.354002 0.158902 0.012789"
+        contype="1"
+        conaffinity="1"
+        friction="0.75 0.015 0.008"
+        material="board_metal"
+      />
+    </body>
+    <body name="board_20" pos="2.8 -0.149777 0.736035" quat="0.770907 -0.045341 -0.390508 -0.501148">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="2.460263" diaginertia="0.007508 0.074282 0.081366" />
+      <geom
+        type="box"
+        size="0.300532 0.094326 0.016072"
+        contype="1"
+        conaffinity="1"
+        friction="1.35 0.03 0.02"
+        material="board_rubber"
+      />
+    </body>
+  </worldbody>
+</mujoco>

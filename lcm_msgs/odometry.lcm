@@ -1,0 +1,10 @@
+package mors_msgs;
+
+struct odometry_msg
+{
+    float position[3];
+    float orientation[3];
+    float orientation_quaternion[4]; // x y z w
+    float lin_vel[3];
+    float ang_vel[3];
+}

@@ -1,0 +1,8 @@
+# # hopf generator
+# ampl: 2.0
+# alpha: 200.0
+# lamb: 0.6
+# a: 400.0
+
+# leg state fsm
+start_td_detecting: 0.5

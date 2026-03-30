@@ -1,0 +1,26 @@
+package mors_msgs;
+
+
+
+struct height_map_msg {
+    // метка времени - когда было создано сообщение
+    int64_t timestamp;
+    // координаты робота (центра карты) в мировых координатах, ориентация робота (угол рысканья)
+    float center_x, center_y, robot_yaw;
+    // Разрешение - размер одной клетки в метрах
+    float resolution;
+    // ширина (вдоль OY) и высота карты (вдоль OX) в клетках
+    int32_t width, height;
+    // Массив-карта
+    float data[height][width];
+}
+
+
+// struct height_map_msg
+// {
+//    // SIZE_X, SIZE_Y in m, RESOLUTION m/pixel
+//    const float SIZE_X=1.5, SIZE_Y=1.0, RESOLUTION=0.005;
+//    int64_t timestamp;
+//    float height_map[300][200]; // size of array: SIZE_X/RESOLUTION, SIZE_Y/RESOLUTION
+// }
+

@@ -1,0 +1,10 @@
+package mors_msgs;
+
+
+struct robot_cmd_msg
+{
+    boolean active_legs[4];
+    int8_t adaptation_type; // 0 - pitch and height, 1 - height, 2 - no adaptation
+    float cmd_vel[6];  // x y z roll pitch yaw
+    float cmd_pose[6]; // x y z roll pitch yaw
+}

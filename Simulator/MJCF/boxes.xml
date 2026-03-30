@@ -1,0 +1,184 @@
+<mujoco model="{name} boxes scene">
+  <include file="{path}" />
+
+  <statistic center="5.55 0 0.12" extent="11.0" meansize="0.04" />
+
+  <visual>
+    <headlight diffuse="0.0 0.0 0.0" ambient="0.0 0.0 0.0" specular="0.0 0.0 0.0" />
+    <global azimuth="220" elevation="-10" />
+    <quality shadowsize="8192" />
+  </visual>
+
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"
+     rgb2=".2 .3 .4" width="300" height="300" mark="edge" markrgb=".2 .3 .4"/>
+    <material name="grid" texture="grid" texrepeat="15 15" reflectance=".05"/>
+  </asset>
+
+  <asset>
+    <texture
+      type="skybox"
+      builtin="gradient"
+      rgb1="0.2 0.2 0.9"
+      rgb2="0.1 0.6 0.2"
+      width="512"
+      height="3072"
+    />
+    <!-- <material name="boxes_floor" rgba="0.28 0.28 0.28 1" /> -->
+    <material name="boxes_geom" rgba="0.70 0.45 0.20 1" />
+  </asset>
+
+  <worldbody>
+    <light
+      name="sun"
+      directional="true"
+      dir="-0.5 -0.4 -1"
+      diffuse="0.4 0.4 0.4"
+      specular="0.2 0.2 0.2"
+      ambient="0.01 0.01 0.01"
+      castshadow="true"
+    />
+
+    <light
+      name="spotlight1"
+      mode="targetbodycom"
+      target="base"
+      diffuse="0.2 0.2 0.2"
+      specular="0.1 0.1 0.1"
+      pos="0 -10 4"
+      cutoff="10"
+    />
+
+    <light
+      name="spotlight2"
+      mode="targetbodycom"
+      directional="true"
+      target="base"
+      diffuse="0.2 0.2 0.2"
+      specular="0.1 0.1 0.1"
+      pos="10 0 4"
+      dir="1 0 0"
+      cutoff="10"
+      castshadow="false"
+    />
+
+    <!-- <geom
+      name="floor"
+      type="plane"
+      size="20 20 0.1"
+      contype="1"
+      conaffinity="1"
+      material="boxes_floor"
+    /> -->
+    <geom name="ground" type="plane" pos="0 0 0" size="15 15 0.1" material="grid"/>
+
+    <geom
+      name="box_1"
+      type="box"
+      pos="0.6 0 0.005"
+      size="0.1 1.0 0.005"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_2"
+      type="box"
+      pos="1.5 0 0.010"
+      size="0.1 1.0 0.010"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_3"
+      type="box"
+      pos="2.4 0 0.015"
+      size="0.1 1.0 0.015"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_4"
+      type="box"
+      pos="3.3 0 0.020"
+      size="0.1 1.0 0.020"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_5"
+      type="box"
+      pos="4.2 0 0.025"
+      size="0.1 1.0 0.025"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_6"
+      type="box"
+      pos="5.1 0 0.030"
+      size="0.1 1.0 0.030"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_7"
+      type="box"
+      pos="6.0 0 0.035"
+      size="0.1 1.0 0.035"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_8"
+      type="box"
+      pos="6.9 0 0.040"
+      size="0.1 1.0 0.040"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_9"
+      type="box"
+      pos="7.8 0 0.045"
+      size="0.1 1.0 0.045"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_10"
+      type="box"
+      pos="8.7 0 0.050"
+      size="0.1 1.0 0.050"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_11"
+      type="box"
+      pos="9.6 0 0.055"
+      size="0.1 1.0 0.055"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+    <geom
+      name="box_12"
+      type="box"
+      pos="10.5 0 0.060"
+      size="0.1 1.0 0.060"
+      contype="1"
+      conaffinity="1"
+      material="boxes_geom"
+    />
+  </worldbody>
+</mujoco>

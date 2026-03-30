@@ -1,0 +1,9 @@
+package mors_msgs;
+
+struct grf_cmd_msg
+{
+    double r1_grf[3];
+    double l1_grf[3];
+    double r2_grf[3];
+    double l2_grf[3];
+}

@@ -1,0 +1,17 @@
+Qf_entry: 0.5653926566674794
+Qa_entry: 4.182252100750921
+
+body_ori_task_kp: 179.3861072550143
+body_ori_task_kd: 35.09001208642153
+
+body_pos_task_kp: 154.11491346499457
+body_pos_task_kd: 43.94703910878965
+
+tip_pos_task_kp: 273.31039598508465
+tip_pos_task_kd: 20.742462899247204
+
+joint_kp_stance: 17.866667883221997
+joint_kd_stance: 0.6691935755931744
+
+joint_kp_swing: 16.957521146156484
+joint_kd_swing: 0.5199230902135769

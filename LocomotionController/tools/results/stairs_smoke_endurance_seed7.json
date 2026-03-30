@@ -1,0 +1,1367 @@
+{
+  "seed": 7,
+  "freeze_swing": false,
+  "lock_f_max": true,
+  "short_scenarios": [
+    {
+      "name": "screen",
+      "duration": 5.8
+    }
+  ],
+  "final_scenarios": [
+    {
+      "name": "stairs_nominal",
+      "duration": 10.8
+    },
+    {
+      "name": "stairs_endurance",
+      "duration": 12.200000000000001
+    }
+  ],
+  "best": {
+    "tag": "final_seed_agile",
+    "stable": false,
+    "score": 2287.905463798267,
+    "metrics": {
+      "body_pos_rmse": 0.0,
+      "body_ori_rmse": 0.0,
+      "body_vel_rmse": 0.0,
+      "foot_rmse": 0.0,
+      "stance_foot_rmse": 0.0,
+      "swing_foot_rmse": 0.0,
+      "torque_mean": 0.0,
+      "sat_fraction": 0.0,
+      "base_x_final": 0.04194682299807904,
+      "base_z_final": 0.06316000889872389,
+      "stairs_front_penalty": 0.45805317700192094,
+      "stairs_progress_penalty": 1.7080531770019212,
+      "stairs_height_penalty": 0.23683999110127615,
+      "torque_peak": 0.0,
+      "roll_pitch_peak": 0.20589885788688056,
+      "base_z_min": 0.05711071086307889,
+      "base_x_max": 0.04897801692108238,
+      "base_z_max": 0.0692093069343689,
+      "sample_count": 0.0,
+      "scenario_count": 2,
+      "unstable_scenarios": [
+        "stairs_nominal",
+        "stairs_endurance"
+      ]
+    },
+    "params": {
+      "wbic": {
+        "Qf_entry": 0.5,
+        "Qa_entry": 4.5,
+        "body_ori_task_kp": 175.0,
+        "body_ori_task_kd": 39.0,
+        "body_pos_task_kp": 165.0,
+        "body_pos_task_kd": 41.0,
+        "tip_pos_task_kp": 320.0,
+        "tip_pos_task_kd": 19.5,
+        "joint_kp_stance": 20.0,
+        "joint_kd_stance": 0.62,
+        "joint_kp_swing": 16.5,
+        "joint_kd_swing": 0.54
+      },
+      "swing_controller": {
+        "interleave_x": [
+          0.006,
+          0.006,
+          0.004,
+          0.004
+        ],
+        "interleave_y": [
+          0.086,
+          0.086,
+          0.086,
+          0.086
+        ],
+        "dz_near_ground": -0.022,
+        "k1_fsp": 0.03
+      },
+      "stance_controller_mpc": {
+        "horizon": 16,
+        "friction": 0.34,
+        "f_min": 5.0,
+        "f_max": 80.0,
+        "Q": [
+          25.74148473743437,
+          25.74148473743437,
+          53.43838140875711,
+          41.276662858740615,
+          41.276662858740615,
+          425.6552684075634,
+          0.009138914878150316,
+          0.009138914878150316,
+          0.14815828020642685,
+          1.8226123603122149,
+          1.8226123603122149,
+          0.17017773115935242,
+          0.0
+        ],
+        "R": [
+          0.8000847292298544,
+          0.8000847292298544,
+          0.7384364290640267,
+          0.8000847292298544,
+          0.8000847292298544,
+          0.7384364290640267,
+          0.8000847292298544,
+          0.8000847292298544,
+          0.7384364290640267,
+          0.8000847292298544,
+          0.8000847292298544,
+          0.7384364290640267
+        ],
+        "Q_gain": 1300.0,
+        "R_gain": 0.0006
+      },
+      "gait": {
+        "name": "trot",
+        "gait_type": [
+          0.0,
+          0.5,
+          0.5,
+          0.0
+        ],
+        "t_sw": 0.24,
+        "t_st": 0.38,
+        "stride_height": 0.11
+      }
+    },
+    "details": [
+      {
+        "tag": "final_seed_agile:stairs_nominal",
+        "stable": false,
+        "score": 2216.8841657468515,
+        "metrics": {
+          "body_pos_rmse": 0.0,
+          "body_ori_rmse": 0.0,
+          "body_vel_rmse": 0.0,
+          "foot_rmse": 0.0,
+          "stance_foot_rmse": 0.0,
+          "swing_foot_rmse": 0.0,
+          "torque_mean": 0.0,
+          "torque_peak": 0.0,
+          "sat_fraction": 0.0,
+          "roll_pitch_peak": 0.20589885788688056,
+          "base_z_min": 0.0692093069343689,
+          "base_x_final": 0.04897801692108238,
+          "base_x_max": 0.04897801692108238,
+          "base_z_final": 0.0692093069343689,
+          "base_z_max": 0.0692093069343689,
+          "stairs_front_penalty": 0.4510219830789176,
+          "stairs_progress_penalty": 1.7010219830789177,
+          "stairs_height_penalty": 0.23079069306563116,
+          "sample_count": 0.0,
+          "scenario": "stairs_nominal",
+          "unstable_reason": "fall"
+        }
+      },
+      {
+        "tag": "final_seed_agile:stairs_endurance",
+        "stable": false,
+        "score": 2358.9267618496824,
+        "metrics": {
+          "body_pos_rmse": 0.0,
+          "body_ori_rmse": 0.0,
+          "body_vel_rmse": 0.0,
+          "foot_rmse": 0.0,
+          "stance_foot_rmse": 0.0,
+          "swing_foot_rmse": 0.0,
+          "torque_mean": 0.0,
+          "torque_peak": 0.0,
+          "sat_fraction": 0.0,
+          "roll_pitch_peak": 0.11519200492970305,
+          "base_z_min": 0.05711071086307889,
+          "base_x_final": 0.03491562907507569,
+          "base_x_max": 0.03491562907507569,
+          "base_z_final": 0.05711071086307889,
+          "base_z_max": 0.05711071086307889,
+          "stairs_front_penalty": 0.46508437092492433,
+          "stairs_progress_penalty": 1.7150843709249244,
+          "stairs_height_penalty": 0.24288928913692115,
+          "sample_count": 0.0,
+          "scenario": "stairs_endurance",
+          "unstable_reason": "fall"
+        }
+      }
+    ]
+  },
+  "short_results": [
+    {
+      "tag": "baseline",
+      "stable": true,
+      "score": 91.80852802152846,
+      "metrics": {
+        "body_pos_rmse": 0.00977271920733814,
+        "body_ori_rmse": 0.028669710677926626,
+        "body_vel_rmse": 0.06757611913655452,
+        "foot_rmse": 0.10131549187121544,
+        "stance_foot_rmse": 0.11895905453588071,
+        "swing_foot_rmse": 0.030510564301685486,
+        "torque_mean": 0.1804915937310984,
+        "torque_peak": 1.9055272914207968,
+        "sat_fraction": 0.0061427909133055045,
+        "roll_pitch_peak": 0.18531422222476013,
+        "base_z_min": 0.21118300648474367,
+        "base_x_final": 0.5708100172727013,
+        "base_x_max": 0.5708100172727013,
+        "base_z_final": 0.248960299745678,
+        "base_z_max": 0.25203747676390387,
+        "stairs_front_penalty": 0.0,
+        "stairs_progress_penalty": 1.1791899827272987,
+        "stairs_height_penalty": 0.05103970025432206,
+        "sample_count": 3595.0,
+        "scenario": "screen"
+      },
+      "params": {
+        "wbic": {
+          "Qf_entry": 0.6030213659709106,
+          "Qa_entry": 3.949553890435971,
+          "body_ori_task_kp": 163.47416108469565,
+          "body_ori_task_kd": 35.27148631272322,
+          "body_pos_task_kp": 143.24008064927537,
+          "body_pos_task_kd": 41.508820252486736,
+          "tip_pos_task_kp": 269.71337246137057,
+          "tip_pos_task_kd": 19.788685760007404,
+          "joint_kp_stance": 17.41550713212779,
+          "joint_kd_stance": 0.6490578704969086,
+          "joint_kp_swing": 15.880153656719076,
+          "joint_kd_swing": 0.5480788488591055
+        },
+        "swing_controller": {
+          "interleave_x": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "interleave_y": [
+            0.08,
+            0.08,
+            0.08,
+            0.08
+          ],
+          "dz_near_ground": -0.02,
+          "k1_fsp": 0.02
+        },
+        "stance_controller_mpc": {
+          "horizon": 16,
+          "friction": 0.3084845525591144,
+          "f_min": 4.345425287300334,
+          "f_max": 80.0,
+          "Q": [
+            23.834708090217006,
+            23.834708090217006,
+            47.712840543533126,
+            41.276662858740615,
+            41.276662858740615,
+            425.6552684075634,
+            0.008703728455381253,
+            0.008703728455381253,
+            0.13468934564220622,
+            1.5188436335935125,
+            1.5188436335935125,
+            0.17017773115935242,
+            0.0
+          ],
+          "R": [
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267,
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267,
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267,
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267
+          ],
+          "Q_gain": 793.1115152809632,
+          "R_gain": 0.0008422161064965111
+        },
+        "gait": {
+          "name": "trot",
+          "gait_type": [
+            0.0,
+            0.5,
+            0.5,
+            0.0
+          ],
+          "t_sw": 0.21,
+          "t_st": 0.3,
+          "stride_height": 0.08
+        }
+      },
+      "details": [
+        {
+          "tag": "baseline:screen",
+          "stable": true,
+          "score": 91.80852802152846,
+          "metrics": {
+            "body_pos_rmse": 0.00977271920733814,
+            "body_ori_rmse": 0.028669710677926626,
+            "body_vel_rmse": 0.06757611913655452,
+            "foot_rmse": 0.10131549187121544,
+            "stance_foot_rmse": 0.11895905453588071,
+            "swing_foot_rmse": 0.030510564301685486,
+            "torque_mean": 0.1804915937310984,
+            "torque_peak": 1.9055272914207968,
+            "sat_fraction": 0.0061427909133055045,
+            "roll_pitch_peak": 0.18531422222476013,
+            "base_z_min": 0.21118300648474367,
+            "base_x_final": 0.5708100172727013,
+            "base_x_max": 0.5708100172727013,
+            "base_z_final": 0.248960299745678,
+            "base_z_max": 0.25203747676390387,
+            "stairs_front_penalty": 0.0,
+            "stairs_progress_penalty": 1.1791899827272987,
+            "stairs_height_penalty": 0.05103970025432206,
+            "sample_count": 3595.0,
+            "scenario": "screen"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "seed_tracking",
+      "stable": false,
+      "score": 1899.012535621082,
+      "metrics": {
+        "body_pos_rmse": 0.28538384076533285,
+        "body_ori_rmse": 0.5687378492204133,
+        "body_vel_rmse": 0.18357014063262764,
+        "foot_rmse": 0.6288744284550866,
+        "stance_foot_rmse": 0.6261885656781114,
+        "swing_foot_rmse": 0.6288744284550866,
+        "torque_mean": 3.6212872822228666,
+        "torque_peak": 11.283768646510618,
+        "sat_fraction": 0.8323201621073961,
+        "roll_pitch_peak": 0.6780157486077116,
+        "base_z_min": 0.0999362840644007,
+        "base_x_final": 0.07440264163840934,
+        "base_x_max": 0.10387383698229474,
+        "base_z_final": 0.0999362840644007,
+        "base_z_max": 0.15664148439765452,
+        "stairs_front_penalty": 0.39612616301770526,
+        "stairs_progress_penalty": 1.6755973583615906,
+        "stairs_height_penalty": 0.20006371593559935,
+        "sample_count": 329.0,
+        "scenario": "screen",
+        "unstable_reason": "fall"
+      },
+      "params": {
+        "wbic": {
+          "Qf_entry": 0.45,
+          "Qa_entry": 5.0,
+          "body_ori_task_kp": 180.0,
+          "body_ori_task_kd": 40.0,
+          "body_pos_task_kp": 170.0,
+          "body_pos_task_kd": 42.0,
+          "tip_pos_task_kp": 310.0,
+          "tip_pos_task_kd": 20.0,
+          "joint_kp_stance": 19.0,
+          "joint_kd_stance": 0.65,
+          "joint_kp_swing": 16.0,
+          "joint_kd_swing": 0.55
+        },
+        "swing_controller": {
+          "interleave_x": [
+            0.004,
+            0.004,
+            0.0,
+            0.0
+          ],
+          "interleave_y": [
+            0.082,
+            0.082,
+            0.082,
+            0.082
+          ],
+          "dz_near_ground": -0.025,
+          "k1_fsp": 0.024
+        },
+        "stance_controller_mpc": {
+          "horizon": 14,
+          "friction": 0.32,
+          "f_min": 5.0,
+          "f_max": 80.0,
+          "Q": [
+            25.026443494727857,
+            25.026443494727857,
+            50.098482570709784,
+            41.276662858740615,
+            41.276662858740615,
+            446.93803182794164,
+            0.008703728455381253,
+            0.008703728455381253,
+            0.13468934564220622,
+            1.7466701786325391,
+            1.7466701786325391,
+            0.17017773115935242,
+            0.0
+          ],
+          "R": [
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267,
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267,
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267,
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267
+          ],
+          "Q_gain": 1200.0,
+          "R_gain": 0.00065
+        },
+        "gait": {
+          "name": "walk_diag_a",
+          "gait_type": [
+            0.0,
+            0.5,
+            0.25,
+            0.75
+          ],
+          "t_sw": 0.3,
+          "t_st": 0.6,
+          "stride_height": 0.12
+        }
+      },
+      "details": [
+        {
+          "tag": "seed_tracking:screen",
+          "stable": false,
+          "score": 1899.012535621082,
+          "metrics": {
+            "body_pos_rmse": 0.28538384076533285,
+            "body_ori_rmse": 0.5687378492204133,
+            "body_vel_rmse": 0.18357014063262764,
+            "foot_rmse": 0.6288744284550866,
+            "stance_foot_rmse": 0.6261885656781114,
+            "swing_foot_rmse": 0.6288744284550866,
+            "torque_mean": 3.6212872822228666,
+            "torque_peak": 11.283768646510618,
+            "sat_fraction": 0.8323201621073961,
+            "roll_pitch_peak": 0.6780157486077116,
+            "base_z_min": 0.0999362840644007,
+            "base_x_final": 0.07440264163840934,
+            "base_x_max": 0.10387383698229474,
+            "base_z_final": 0.0999362840644007,
+            "base_z_max": 0.15664148439765452,
+            "stairs_front_penalty": 0.39612616301770526,
+            "stairs_progress_penalty": 1.6755973583615906,
+            "stairs_height_penalty": 0.20006371593559935,
+            "sample_count": 329.0,
+            "scenario": "screen",
+            "unstable_reason": "fall"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "seed_clearance",
+      "stable": false,
+      "score": 1964.957716261299,
+      "metrics": {
+        "body_pos_rmse": 0.31868018600204223,
+        "body_ori_rmse": 0.529980986519543,
+        "body_vel_rmse": 0.3734323846962878,
+        "foot_rmse": 0.695637992592577,
+        "stance_foot_rmse": 0.6642115655259297,
+        "swing_foot_rmse": 0.695637992592577,
+        "torque_mean": 3.288492638749196,
+        "torque_peak": 11.626531613390659,
+        "sat_fraction": 0.7858719646799109,
+        "roll_pitch_peak": 0.8295556172006964,
+        "base_z_min": 0.09954356515410102,
+        "base_x_final": -0.03746845201625543,
+        "base_x_max": 0.01654507869639531,
+        "base_z_final": 0.09954356515410102,
+        "base_z_max": 0.17651865781731596,
+        "stairs_front_penalty": 0.4834549213036047,
+        "stairs_progress_penalty": 1.7874684520162554,
+        "stairs_height_penalty": 0.20045643484589903,
+        "sample_count": 151.0,
+        "scenario": "screen",
+        "unstable_reason": "fall"
+      },
+      "params": {
+        "wbic": {
+          "Qf_entry": 0.55,
+          "Qa_entry": 4.2,
+          "body_ori_task_kp": 165.0,
+          "body_ori_task_kd": 38.0,
+          "body_pos_task_kp": 155.0,
+          "body_pos_task_kd": 40.0,
+          "tip_pos_task_kp": 285.0,
+          "tip_pos_task_kd": 18.5,
+          "joint_kp_stance": 18.0,
+          "joint_kd_stance": 0.68,
+          "joint_kp_swing": 15.0,
+          "joint_kd_swing": 0.58
+        },
+        "swing_controller": {
+          "interleave_x": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "interleave_y": [
+            0.078,
+            0.078,
+            0.078,
+            0.078
+          ],
+          "dz_near_ground": -0.035,
+          "k1_fsp": 0.018
+        },
+        "stance_controller_mpc": {
+          "horizon": 15,
+          "friction": 0.3,
+          "f_min": 4.5,
+          "f_max": 80.0,
+          "Q": [
+            23.834708090217006,
+            23.834708090217006,
+            47.712840543533126,
+            39.21282971580358,
+            39.21282971580358,
+            468.2207952483198,
+            0.008703728455381253,
+            0.008703728455381253,
+            0.13468934564220622,
+            1.5947858152731882,
+            1.5947858152731882,
+            0.17017773115935242,
+            0.0
+          ],
+          "R": [
+            0.8843041744119445,
+            0.8843041744119445,
+            0.7753582505172281,
+            0.8843041744119445,
+            0.8843041744119445,
+            0.7753582505172281,
+            0.8843041744119445,
+            0.8843041744119445,
+            0.7753582505172281,
+            0.8843041744119445,
+            0.8843041744119445,
+            0.7753582505172281
+          ],
+          "Q_gain": 900.0,
+          "R_gain": 0.0008
+        },
+        "gait": {
+          "name": "walk_diag_b",
+          "gait_type": [
+            0.0,
+            0.5,
+            0.75,
+            0.25
+          ],
+          "t_sw": 0.32,
+          "t_st": 0.66,
+          "stride_height": 0.14
+        }
+      },
+      "details": [
+        {
+          "tag": "seed_clearance:screen",
+          "stable": false,
+          "score": 1964.957716261299,
+          "metrics": {
+            "body_pos_rmse": 0.31868018600204223,
+            "body_ori_rmse": 0.529980986519543,
+            "body_vel_rmse": 0.3734323846962878,
+            "foot_rmse": 0.695637992592577,
+            "stance_foot_rmse": 0.6642115655259297,
+            "swing_foot_rmse": 0.695637992592577,
+            "torque_mean": 3.288492638749196,
+            "torque_peak": 11.626531613390659,
+            "sat_fraction": 0.7858719646799109,
+            "roll_pitch_peak": 0.8295556172006964,
+            "base_z_min": 0.09954356515410102,
+            "base_x_final": -0.03746845201625543,
+            "base_x_max": 0.01654507869639531,
+            "base_z_final": 0.09954356515410102,
+            "base_z_max": 0.17651865781731596,
+            "stairs_front_penalty": 0.4834549213036047,
+            "stairs_progress_penalty": 1.7874684520162554,
+            "stairs_height_penalty": 0.20045643484589903,
+            "sample_count": 151.0,
+            "scenario": "screen",
+            "unstable_reason": "fall"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "seed_agile",
+      "stable": false,
+      "score": 1647.694547508801,
+      "metrics": {
+        "body_pos_rmse": 0.16895090278770813,
+        "body_ori_rmse": 0.2702874558492432,
+        "body_vel_rmse": 0.42437738120032903,
+        "foot_rmse": 0.43077053740106513,
+        "stance_foot_rmse": 0.2929098918887943,
+        "swing_foot_rmse": 0.43077053740106513,
+        "torque_mean": 1.3591625336392232,
+        "torque_peak": 14.342551748747907,
+        "sat_fraction": 0.34678446354664044,
+        "roll_pitch_peak": 0.854202268847782,
+        "base_z_min": 0.19547719125791774,
+        "base_x_final": 0.08721124226924425,
+        "base_x_max": 0.16741653465898268,
+        "base_z_final": 0.24303694029443962,
+        "base_z_max": 0.2899065108978851,
+        "stairs_front_penalty": 0.33258346534101735,
+        "stairs_progress_penalty": 1.6627887577307559,
+        "stairs_height_penalty": 0.056963059705560426,
+        "sample_count": 1047.0,
+        "scenario": "screen",
+        "unstable_reason": "fall"
+      },
+      "params": {
+        "wbic": {
+          "Qf_entry": 0.5,
+          "Qa_entry": 4.5,
+          "body_ori_task_kp": 175.0,
+          "body_ori_task_kd": 39.0,
+          "body_pos_task_kp": 165.0,
+          "body_pos_task_kd": 41.0,
+          "tip_pos_task_kp": 320.0,
+          "tip_pos_task_kd": 19.5,
+          "joint_kp_stance": 20.0,
+          "joint_kd_stance": 0.62,
+          "joint_kp_swing": 16.5,
+          "joint_kd_swing": 0.54
+        },
+        "swing_controller": {
+          "interleave_x": [
+            0.006,
+            0.006,
+            0.004,
+            0.004
+          ],
+          "interleave_y": [
+            0.086,
+            0.086,
+            0.086,
+            0.086
+          ],
+          "dz_near_ground": -0.022,
+          "k1_fsp": 0.03
+        },
+        "stance_controller_mpc": {
+          "horizon": 16,
+          "friction": 0.34,
+          "f_min": 5.0,
+          "f_max": 80.0,
+          "Q": [
+            25.74148473743437,
+            25.74148473743437,
+            53.43838140875711,
+            41.276662858740615,
+            41.276662858740615,
+            425.6552684075634,
+            0.009138914878150316,
+            0.009138914878150316,
+            0.14815828020642685,
+            1.8226123603122149,
+            1.8226123603122149,
+            0.17017773115935242,
+            0.0
+          ],
+          "R": [
+            0.8000847292298544,
+            0.8000847292298544,
+            0.7384364290640267,
+            0.8000847292298544,
+            0.8000847292298544,
+            0.7384364290640267,
+            0.8000847292298544,
+            0.8000847292298544,
+            0.7384364290640267,
+            0.8000847292298544,
+            0.8000847292298544,
+            0.7384364290640267
+          ],
+          "Q_gain": 1300.0,
+          "R_gain": 0.0006
+        },
+        "gait": {
+          "name": "trot",
+          "gait_type": [
+            0.0,
+            0.5,
+            0.5,
+            0.0
+          ],
+          "t_sw": 0.24,
+          "t_st": 0.38,
+          "stride_height": 0.11
+        }
+      },
+      "details": [
+        {
+          "tag": "seed_agile:screen",
+          "stable": false,
+          "score": 1647.694547508801,
+          "metrics": {
+            "body_pos_rmse": 0.16895090278770813,
+            "body_ori_rmse": 0.2702874558492432,
+            "body_vel_rmse": 0.42437738120032903,
+            "foot_rmse": 0.43077053740106513,
+            "stance_foot_rmse": 0.2929098918887943,
+            "swing_foot_rmse": 0.43077053740106513,
+            "torque_mean": 1.3591625336392232,
+            "torque_peak": 14.342551748747907,
+            "sat_fraction": 0.34678446354664044,
+            "roll_pitch_peak": 0.854202268847782,
+            "base_z_min": 0.19547719125791774,
+            "base_x_final": 0.08721124226924425,
+            "base_x_max": 0.16741653465898268,
+            "base_z_final": 0.24303694029443962,
+            "base_z_max": 0.2899065108978851,
+            "stairs_front_penalty": 0.33258346534101735,
+            "stairs_progress_penalty": 1.6627887577307559,
+            "stairs_height_penalty": 0.056963059705560426,
+            "sample_count": 1047.0,
+            "scenario": "screen",
+            "unstable_reason": "fall"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "search_1",
+      "stable": false,
+      "score": 1715.8336768237025,
+      "metrics": {
+        "body_pos_rmse": 0.0,
+        "body_ori_rmse": 0.0,
+        "body_vel_rmse": 0.0,
+        "foot_rmse": 0.0,
+        "stance_foot_rmse": 0.0,
+        "swing_foot_rmse": 0.0,
+        "torque_mean": 0.0,
+        "torque_peak": 0.0,
+        "sat_fraction": 0.0,
+        "roll_pitch_peak": 0.10418204566014701,
+        "base_z_min": 0.0601227381649891,
+        "base_x_final": 0.06408081903318763,
+        "base_x_max": 0.06408081903318763,
+        "base_z_final": 0.0601227381649891,
+        "base_z_max": 0.0601227381649891,
+        "stairs_front_penalty": 0.43591918096681237,
+        "stairs_progress_penalty": 1.6859191809668124,
+        "stairs_height_penalty": 0.23987726183501096,
+        "sample_count": 0.0,
+        "scenario": "screen",
+        "unstable_reason": "fall"
+      },
+      "params": {
+        "wbic": {
+          "Qf_entry": 0.3802512832204787,
+          "Qa_entry": 3.8954350224854344,
+          "body_ori_task_kp": 173.36292513783647,
+          "body_ori_task_kd": 26.16129686903845,
+          "body_pos_task_kp": 134.0389475743603,
+          "body_pos_task_kd": 31.220477473203317,
+          "tip_pos_task_kp": 431.1569583633506,
+          "tip_pos_task_kd": 24.7625125862817,
+          "joint_kp_stance": 16.06575996312714,
+          "joint_kd_stance": 0.44687967091705516,
+          "joint_kp_swing": 14.052788038271286,
+          "joint_kd_swing": 0.2739803181481229
+        },
+        "swing_controller": {
+          "interleave_x": [
+            0.0006129797285628503,
+            0.0006129797285628503,
+            0.010671303116800953,
+            0.010671303116800953
+          ],
+          "interleave_y": [
+            0.065942494135183,
+            0.065942494135183,
+            0.065942494135183,
+            0.065942494135183
+          ],
+          "dz_near_ground": -0.021161948230350728,
+          "k1_fsp": 0.03886192823065711
+        },
+        "stance_controller_mpc": {
+          "horizon": 13,
+          "friction": 0.3447026817339396,
+          "f_min": 4.1209416482381505,
+          "f_max": 80.0,
+          "Q": [
+            17.231800641658072,
+            17.231800641658072,
+            64.25109764345073,
+            36.02975658807014,
+            36.02975658807014,
+            351.09163236785326,
+            0.005943712085715978,
+            0.005943712085715978,
+            0.11341427694685871,
+            2.221342694644174,
+            2.221342694644174,
+            0.1446665265050357,
+            0.0
+          ],
+          "R": [
+            0.9004364723540927,
+            0.9004364723540927,
+            0.8231524822555204,
+            0.9004364723540927,
+            0.9004364723540927,
+            0.8231524822555204,
+            0.9004364723540927,
+            0.9004364723540927,
+            0.8231524822555204,
+            0.9004364723540927,
+            0.9004364723540927,
+            0.8231524822555204
+          ],
+          "Q_gain": 598.0705679968651,
+          "R_gain": 0.0011296124465343786
+        },
+        "gait": {
+          "name": "trot",
+          "gait_type": [
+            0.0,
+            0.5,
+            0.5,
+            0.0
+          ],
+          "t_sw": 0.24514946345067096,
+          "t_st": 0.41142172677123967,
+          "stride_height": 0.1048207247556746
+        }
+      },
+      "details": [
+        {
+          "tag": "search_1:screen",
+          "stable": false,
+          "score": 1715.8336768237025,
+          "metrics": {
+            "body_pos_rmse": 0.0,
+            "body_ori_rmse": 0.0,
+            "body_vel_rmse": 0.0,
+            "foot_rmse": 0.0,
+            "stance_foot_rmse": 0.0,
+            "swing_foot_rmse": 0.0,
+            "torque_mean": 0.0,
+            "torque_peak": 0.0,
+            "sat_fraction": 0.0,
+            "roll_pitch_peak": 0.10418204566014701,
+            "base_z_min": 0.0601227381649891,
+            "base_x_final": 0.06408081903318763,
+            "base_x_max": 0.06408081903318763,
+            "base_z_final": 0.0601227381649891,
+            "base_z_max": 0.0601227381649891,
+            "stairs_front_penalty": 0.43591918096681237,
+            "stairs_progress_penalty": 1.6859191809668124,
+            "stairs_height_penalty": 0.23987726183501096,
+            "sample_count": 0.0,
+            "scenario": "screen",
+            "unstable_reason": "fall"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "local_1",
+      "stable": false,
+      "score": 1849.2513424921226,
+      "metrics": {
+        "body_pos_rmse": 0.20377028252888532,
+        "body_ori_rmse": 0.3484417367245668,
+        "body_vel_rmse": 0.4374772568092508,
+        "foot_rmse": 0.35409422832642506,
+        "stance_foot_rmse": 0.35029590385799014,
+        "swing_foot_rmse": 0.35409422832642506,
+        "torque_mean": 3.2544959332719943,
+        "torque_peak": 11.508419758117325,
+        "sat_fraction": 0.6987913486005083,
+        "roll_pitch_peak": 0.45158397767380265,
+        "base_z_min": 0.09997404967914071,
+        "base_x_final": 0.2994750512531744,
+        "base_x_max": 0.30000213690017175,
+        "base_z_final": 0.09997404967914071,
+        "base_z_max": 0.17857258833319536,
+        "stairs_front_penalty": 0.19999786309982825,
+        "stairs_progress_penalty": 1.4505249487468257,
+        "stairs_height_penalty": 0.20002595032085935,
+        "sample_count": 262.0,
+        "scenario": "screen",
+        "unstable_reason": "fall"
+      },
+      "params": {
+        "wbic": {
+          "Qf_entry": 0.6435197450286817,
+          "Qa_entry": 3.7755892722385203,
+          "body_ori_task_kp": 167.78073244620867,
+          "body_ori_task_kd": 38.1540002349729,
+          "body_pos_task_kp": 154.04693667957102,
+          "body_pos_task_kd": 42.09284654883471,
+          "tip_pos_task_kp": 273.2521125564459,
+          "tip_pos_task_kd": 19.215306287945502,
+          "joint_kp_stance": 16.27886493593411,
+          "joint_kd_stance": 0.6231278941475772,
+          "joint_kp_swing": 16.024995660366258,
+          "joint_kd_swing": 0.5309213161258894
+        },
+        "swing_controller": {
+          "interleave_x": [
+            -0.0005116580957220673,
+            -0.0005116580957220673,
+            0.0010895901903640358,
+            0.0010895901903640358
+          ],
+          "interleave_y": [
+            0.07601984971554827,
+            0.07601984971554827,
+            0.07601984971554827,
+            0.07601984971554827
+          ],
+          "dz_near_ground": -0.02087637011614431,
+          "k1_fsp": 0.018923787780404013
+        },
+        "stance_controller_mpc": {
+          "horizon": 16,
+          "friction": 0.29653936276945864,
+          "f_min": 4.337751683734602,
+          "f_max": 80.0,
+          "Q": [
+            24.634367788249218,
+            24.634367788249218,
+            49.95724880625915,
+            42.11142688367612,
+            42.11142688367612,
+            452.28719632027367,
+            0.008498969346919346,
+            0.008498969346919346,
+            0.14077099601489204,
+            1.5598320255973603,
+            1.5598320255973603,
+            0.173783002314289,
+            0.0
+          ],
+          "R": [
+            0.8454526885594886,
+            0.8454526885594886,
+            0.7809670364920576,
+            0.8454526885594886,
+            0.8454526885594886,
+            0.7809670364920576,
+            0.8454526885594886,
+            0.8454526885594886,
+            0.7809670364920576,
+            0.8454526885594886,
+            0.8454526885594886,
+            0.7809670364920576
+          ],
+          "Q_gain": 922.7093698867484,
+          "R_gain": 0.0008609381504683423
+        },
+        "gait": {
+          "name": "trot",
+          "gait_type": [
+            0.0,
+            0.5,
+            0.5,
+            0.0
+          ],
+          "t_sw": 0.21551551410394904,
+          "t_st": 0.28,
+          "stride_height": 0.08370148510678371
+        }
+      },
+      "details": [
+        {
+          "tag": "local_1:screen",
+          "stable": false,
+          "score": 1849.2513424921226,
+          "metrics": {
+            "body_pos_rmse": 0.20377028252888532,
+            "body_ori_rmse": 0.3484417367245668,
+            "body_vel_rmse": 0.4374772568092508,
+            "foot_rmse": 0.35409422832642506,
+            "stance_foot_rmse": 0.35029590385799014,
+            "swing_foot_rmse": 0.35409422832642506,
+            "torque_mean": 3.2544959332719943,
+            "torque_peak": 11.508419758117325,
+            "sat_fraction": 0.6987913486005083,
+            "roll_pitch_peak": 0.45158397767380265,
+            "base_z_min": 0.09997404967914071,
+            "base_x_final": 0.2994750512531744,
+            "base_x_max": 0.30000213690017175,
+            "base_z_final": 0.09997404967914071,
+            "base_z_max": 0.17857258833319536,
+            "stairs_front_penalty": 0.19999786309982825,
+            "stairs_progress_penalty": 1.4505249487468257,
+            "stairs_height_penalty": 0.20002595032085935,
+            "sample_count": 262.0,
+            "scenario": "screen",
+            "unstable_reason": "fall"
+          }
+        }
+      ]
+    }
+  ],
+  "final_results": [
+    {
+      "tag": "final_baseline",
+      "stable": false,
+      "score": 2359.2430464290255,
+      "metrics": {
+        "body_pos_rmse": 0.08661300671609405,
+        "body_ori_rmse": 0.19693863448103083,
+        "body_vel_rmse": 0.17302473130914264,
+        "foot_rmse": 0.1664956145281656,
+        "stance_foot_rmse": 0.14759294688453756,
+        "swing_foot_rmse": 0.1664956145281656,
+        "torque_mean": 0.9127810675189049,
+        "sat_fraction": 0.2190721649484536,
+        "base_x_final": 0.10655906870353378,
+        "base_z_final": 0.15033955391139536,
+        "stairs_front_penalty": 0.3934409312964662,
+        "stairs_progress_penalty": 1.6434409312964662,
+        "stairs_height_penalty": 0.14966044608860468,
+        "torque_peak": 10.678753457732242,
+        "roll_pitch_peak": 0.851445212046118,
+        "base_z_min": 0.08628492652526994,
+        "base_x_max": 0.1826113158730943,
+        "base_z_max": 0.22364918688308097,
+        "sample_count": 97.0,
+        "scenario_count": 2,
+        "unstable_scenarios": [
+          "stairs_nominal",
+          "stairs_endurance"
+        ]
+      },
+      "params": {
+        "wbic": {
+          "Qf_entry": 0.6030213659709106,
+          "Qa_entry": 3.949553890435971,
+          "body_ori_task_kp": 163.47416108469565,
+          "body_ori_task_kd": 35.27148631272322,
+          "body_pos_task_kp": 143.24008064927537,
+          "body_pos_task_kd": 41.508820252486736,
+          "tip_pos_task_kp": 269.71337246137057,
+          "tip_pos_task_kd": 19.788685760007404,
+          "joint_kp_stance": 17.41550713212779,
+          "joint_kd_stance": 0.6490578704969086,
+          "joint_kp_swing": 15.880153656719076,
+          "joint_kd_swing": 0.5480788488591055
+        },
+        "swing_controller": {
+          "interleave_x": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "interleave_y": [
+            0.08,
+            0.08,
+            0.08,
+            0.08
+          ],
+          "dz_near_ground": -0.02,
+          "k1_fsp": 0.02
+        },
+        "stance_controller_mpc": {
+          "horizon": 16,
+          "friction": 0.3084845525591144,
+          "f_min": 4.345425287300334,
+          "f_max": 80.0,
+          "Q": [
+            23.834708090217006,
+            23.834708090217006,
+            47.712840543533126,
+            41.276662858740615,
+            41.276662858740615,
+            425.6552684075634,
+            0.008703728455381253,
+            0.008703728455381253,
+            0.13468934564220622,
+            1.5188436335935125,
+            1.5188436335935125,
+            0.17017773115935242,
+            0.0
+          ],
+          "R": [
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267,
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267,
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267,
+            0.8421944518208995,
+            0.8421944518208995,
+            0.7384364290640267
+          ],
+          "Q_gain": 793.1115152809632,
+          "R_gain": 0.0008422161064965111
+        },
+        "gait": {
+          "name": "trot",
+          "gait_type": [
+            0.0,
+            0.5,
+            0.5,
+            0.0
+          ],
+          "t_sw": 0.21,
+          "t_st": 0.3,
+          "stride_height": 0.08
+        }
+      },
+      "details": [
+        {
+          "tag": "final_baseline:stairs_nominal",
+          "stable": false,
+          "score": 2362.9430007162696,
+          "metrics": {
+            "body_pos_rmse": 0.1732260134321881,
+            "body_ori_rmse": 0.39387726896206166,
+            "body_vel_rmse": 0.3460494626182853,
+            "foot_rmse": 0.3329912290563312,
+            "stance_foot_rmse": 0.2951858937690751,
+            "swing_foot_rmse": 0.3329912290563312,
+            "torque_mean": 1.8255621350378097,
+            "torque_peak": 10.678753457732242,
+            "sat_fraction": 0.4381443298969072,
+            "roll_pitch_peak": 0.851445212046118,
+            "base_z_min": 0.2143941812975208,
+            "base_x_final": 0.1826113158730943,
+            "base_x_max": 0.1826113158730943,
+            "base_z_final": 0.2143941812975208,
+            "base_z_max": 0.22364918688308097,
+            "stairs_front_penalty": 0.3173886841269057,
+            "stairs_progress_penalty": 1.5673886841269058,
+            "stairs_height_penalty": 0.08560581870247924,
+            "sample_count": 97.0,
+            "scenario": "stairs_nominal",
+            "unstable_reason": "fall"
+          }
+        },
+        {
+          "tag": "final_baseline:stairs_endurance",
+          "stable": false,
+          "score": 2355.543092141781,
+          "metrics": {
+            "body_pos_rmse": 0.0,
+            "body_ori_rmse": 0.0,
+            "body_vel_rmse": 0.0,
+            "foot_rmse": 0.0,
+            "stance_foot_rmse": 0.0,
+            "swing_foot_rmse": 0.0,
+            "torque_mean": 0.0,
+            "torque_peak": 0.0,
+            "sat_fraction": 0.0,
+            "roll_pitch_peak": 0.19098001801767528,
+            "base_z_min": 0.08628492652526994,
+            "base_x_final": 0.03050682153397328,
+            "base_x_max": 0.03050682153397328,
+            "base_z_final": 0.08628492652526994,
+            "base_z_max": 0.08628492652526994,
+            "stairs_front_penalty": 0.46949317846602673,
+            "stairs_progress_penalty": 1.7194931784660268,
+            "stairs_height_penalty": 0.21371507347473012,
+            "sample_count": 0.0,
+            "scenario": "stairs_endurance",
+            "unstable_reason": "fall"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "final_seed_agile",
+      "stable": false,
+      "score": 2287.905463798267,
+      "metrics": {
+        "body_pos_rmse": 0.0,
+        "body_ori_rmse": 0.0,
+        "body_vel_rmse": 0.0,
+        "foot_rmse": 0.0,
+        "stance_foot_rmse": 0.0,
+        "swing_foot_rmse": 0.0,
+        "torque_mean": 0.0,
+        "sat_fraction": 0.0,
+        "base_x_final": 0.04194682299807904,
+        "base_z_final": 0.06316000889872389,
+        "stairs_front_penalty": 0.45805317700192094,
+        "stairs_progress_penalty": 1.7080531770019212,
+        "stairs_height_penalty": 0.23683999110127615,
+        "torque_peak": 0.0,
+        "roll_pitch_peak": 0.20589885788688056,
+        "base_z_min": 0.05711071086307889,
+        "base_x_max": 0.04897801692108238,
+        "base_z_max": 0.0692093069343689,
+        "sample_count": 0.0,
+        "scenario_count": 2,
+        "unstable_scenarios": [
+          "stairs_nominal",
+          "stairs_endurance"
+        ]
+      },
+      "params": {
+        "wbic": {
+          "Qf_entry": 0.5,
+          "Qa_entry": 4.5,
+          "body_ori_task_kp": 175.0,
+          "body_ori_task_kd": 39.0,
+          "body_pos_task_kp": 165.0,
+          "body_pos_task_kd": 41.0,
+          "tip_pos_task_kp": 320.0,
+          "tip_pos_task_kd": 19.5,
+          "joint_kp_stance": 20.0,
+          "joint_kd_stance": 0.62,
+          "joint_kp_swing": 16.5,
+          "joint_kd_swing": 0.54
+        },
+        "swing_controller": {
+          "interleave_x": [
+            0.006,
+            0.006,
+            0.004,
+            0.004
+          ],
+          "interleave_y": [
+            0.086,
+            0.086,
+            0.086,
+            0.086
+          ],
+          "dz_near_ground": -0.022,
+          "k1_fsp": 0.03
+        },
+        "stance_controller_mpc": {
+          "horizon": 16,
+          "friction": 0.34,
+          "f_min": 5.0,
+          "f_max": 80.0,
+          "Q": [
+            25.74148473743437,
+            25.74148473743437,
+            53.43838140875711,
+            41.276662858740615,
+            41.276662858740615,
+            425.6552684075634,
+            0.009138914878150316,
+            0.009138914878150316,
+            0.14815828020642685,
+            1.8226123603122149,
+            1.8226123603122149,
+            0.17017773115935242,
+            0.0
+          ],
+          "R": [
+            0.8000847292298544,
+            0.8000847292298544,
+            0.7384364290640267,
+            0.8000847292298544,
+            0.8000847292298544,
+            0.7384364290640267,
+            0.8000847292298544,
+            0.8000847292298544,
+            0.7384364290640267,
+            0.8000847292298544,
+            0.8000847292298544,
+            0.7384364290640267
+          ],
+          "Q_gain": 1300.0,
+          "R_gain": 0.0006
+        },
+        "gait": {
+          "name": "trot",
+          "gait_type": [
+            0.0,
+            0.5,
+            0.5,
+            0.0
+          ],
+          "t_sw": 0.24,
+          "t_st": 0.38,
+          "stride_height": 0.11
+        }
+      },
+      "details": [
+        {
+          "tag": "final_seed_agile:stairs_nominal",
+          "stable": false,
+          "score": 2216.8841657468515,
+          "metrics": {
+            "body_pos_rmse": 0.0,
+            "body_ori_rmse": 0.0,
+            "body_vel_rmse": 0.0,
+            "foot_rmse": 0.0,
+            "stance_foot_rmse": 0.0,
+            "swing_foot_rmse": 0.0,
+            "torque_mean": 0.0,
+            "torque_peak": 0.0,
+            "sat_fraction": 0.0,
+            "roll_pitch_peak": 0.20589885788688056,
+            "base_z_min": 0.0692093069343689,
+            "base_x_final": 0.04897801692108238,
+            "base_x_max": 0.04897801692108238,
+            "base_z_final": 0.0692093069343689,
+            "base_z_max": 0.0692093069343689,
+            "stairs_front_penalty": 0.4510219830789176,
+            "stairs_progress_penalty": 1.7010219830789177,
+            "stairs_height_penalty": 0.23079069306563116,
+            "sample_count": 0.0,
+            "scenario": "stairs_nominal",
+            "unstable_reason": "fall"
+          }
+        },
+        {
+          "tag": "final_seed_agile:stairs_endurance",
+          "stable": false,
+          "score": 2358.9267618496824,
+          "metrics": {
+            "body_pos_rmse": 0.0,
+            "body_ori_rmse": 0.0,
+            "body_vel_rmse": 0.0,
+            "foot_rmse": 0.0,
+            "stance_foot_rmse": 0.0,
+            "swing_foot_rmse": 0.0,
+            "torque_mean": 0.0,
+            "torque_peak": 0.0,
+            "sat_fraction": 0.0,
+            "roll_pitch_peak": 0.11519200492970305,
+            "base_z_min": 0.05711071086307889,
+            "base_x_final": 0.03491562907507569,
+            "base_x_max": 0.03491562907507569,
+            "base_z_final": 0.05711071086307889,
+            "base_z_max": 0.05711071086307889,
+            "stairs_front_penalty": 0.46508437092492433,
+            "stairs_progress_penalty": 1.7150843709249244,
+            "stairs_height_penalty": 0.24288928913692115,
+            "sample_count": 0.0,
+            "scenario": "stairs_endurance",
+            "unstable_reason": "fall"
+          }
+        }
+      ]
+    }
+  ]
+}

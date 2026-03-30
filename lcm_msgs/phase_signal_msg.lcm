@@ -1,0 +1,9 @@
+package mors_msgs;
+
+
+struct phase_signal_msg
+{
+    float t;
+    int16_t phase[4];
+    float phi[4];
+}

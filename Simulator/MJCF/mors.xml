@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<mujoco model="mors_sim">
+  <compiler autolimits="true"/>
+  <option timestep="0.001" integrator="Euler" cone="elliptic" impratio="10"/> 
+  <!-- impratio="100"/> -->
+
+
+  <visual>
+    <map shadowscale="0.05" shadowclip="1.0"/>
+  </visual>
+
+  <default>
+    <geom friction="1.0 0.02 0.01" margin="0.00" solimp="0.015 1.0 0.022"/>
+    <joint damping="0.1" armature="0.001" frictionloss="0.1"/>
+  </default>
+  
+  <!-- Assets: meshes referenced from the package (kept as in URDF) -->
+  <asset>
+    <mesh name="body" file="../meshes/b.obj"/>
+    <mesh name="joint1" file="../meshes/j1.stl"/>
+    <mesh name="joint2" file="../meshes/j2.obj"/>
+    <mesh name="joint3_1" file="../meshes/j3_1.obj"/>
+  </asset>
+
+  <!-- <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"
+     rgb2=".2 .3 .4" width="300" height="300" mark="edge" markrgb=".2 .3 .4"/>
+    <material name="grid" texture="grid" texrepeat="10 10" reflectance=".05"/>
+  </asset> -->
+
+  <worldbody>
+    <!-- <geom size="10.0 10.0 .01" type="plane" material="grid"/> -->
+    <!-- <geom name="ground" type="plane" pos="0 0 0" size="10 10 0.1" material="grid"/> -->
+    <light pos="0 0 20.0" mode="trackcom"/>
+    <camera name="closeup" pos="0 -.1 .07" xyaxes="1 0 0 0 1 2"/>
+
+    <!-- Base / body -->
+    <body name="base" pos="0 0 0.4">
+      <freejoint/>
+      <site name="IMU"/>
+      <inertial 
+        pos="-0.00272 0.000875 0.000178"
+        mass="3.748"
+        fullinertia="0.012838176 0.056852389 0.064034355 -0.000006851 0.000156493 -0.000095392"
+      />
+      <geom type="box" size="0.1059 0.102 0.044" name="body_visual" rgba="0.7 0.7 0.8 1" />
+      <!-- <geom type="mesh" mesh="body" name="body_visual" rgba="0.7 0.7 0.8 1" margin="0.001"/> -->
+
+      <!-- Four legs: R1, L1, R2, L2 -->
+      <!-- Abad attach positions from XACRO: abad_attach_x=0.1035, abad_attach_y=0.066 -->
+      <!-- Leg R1 -->
+      <body name="abad_R1" pos="0.1065 -0.067 0.0" euler="0 90 -90">
+        <joint name="abad_joint_R1" type="hinge" axis="0 0 1"/>
+        <inertial 
+          pos="-0.00606 -0.000018 0.058144" 
+          mass="0.309" 
+          fullinertia="0.000178705 0.000161337 0.0001003 -1.02e-7 -0.000003483 -5e-9"
+        />
+        <geom type="mesh" mesh="joint1" rgba="0.0 0.7 0.9 1"/>
+        <!-- <body name="hip_R1" pos="0.02145 0.0 0.059" euler="0 90 90">  -->
+        <body name="hip_R1" pos="0.0215 0.0 0.059" euler="0 90 90">
+          <joint name="hip_joint_R1" type="hinge" axis="0 0 1"/>
+          <inertial 
+            pos="0.034385 -0.000226 0.044820" 
+            mass="0.532" 
+            fullinertia="0.000279734 0.001715204 0.001731949 2.8e-7 -0.000253770 -1.2e-6"
+          />
+          <geom type="mesh" mesh="joint2" rgba="0.7 0.7 0.8 1"/>
+          <body name="knee_R1" pos="0.13 0.0 0.0645" euler="0 0 0">
+            <joint name="knee_joint_R1" type="hinge" axis="0 0 1"/>
+            <inertial 
+              pos="0.058408 0.0 0.009288" 
+              mass="0.049" 
+              fullinertia="0.000003796 0.000208824 0.000208730 0.0 -0.000007744 0.0"
+            />
+            <geom type="mesh" mesh="joint3_1" rgba="0.0 0.7 0.9 1"/>
+            <body name="ef_R1" pos="0.1485 0.0 0.012">
+              <inertial 
+                pos="0.0 0.0 0.0" 
+                mass="0.018" 
+                fullinertia="1.4e-6 1.4e-6 1.4e-6 0.0 0.0 0.0"
+              />
+              <!-- <geom type="sphere" size="0.015" rgba="0.2 0.2 0.2 1" priority="1" condim="6"/> -->
+              <geom type="sphere" size="0.015" rgba="0.2 0.2 0.2 1" margin="0.001" priority="1" solimp="0.8 1.0 0.0023 0.5 2" solref="0.01 1"/>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- Leg L1 -->
+      <body name="abad_L1" pos="0.1065 0.067 0.0" euler="0 90 90">
+        <joint name="abad_joint_L1" type="hinge" axis="0 0 1"/>
+        <inertial 
+          pos="-0.00606 -0.000018 0.058144" 
+          mass="0.309" 
+          fullinertia="0.000178705 0.000161337 0.0001003 -1.02e-7 -0.000003483 -5e-9"
+        />
+        <geom type="mesh" mesh="joint1" rgba="0.7 0.2 0.2 1"/>
+        <!-- <body name="hip_L1" pos="0.02145 0.0 0.059" euler="0 90 -90"> -->
+        <body name="hip_L1" pos="0.0215 0.0 0.059" euler="0 90 -90">
+          <joint name="hip_joint_L1" type="hinge" axis="0 0 1"/>
+          <inertial 
+            pos="0.034385 -0.000226 0.044820" 
+            mass="0.532" 
+            fullinertia="0.000279734 0.001715204 0.001731949 2.8e-7 -0.000253770 -1.2e-6"
+          />
+          <geom type="mesh" mesh="joint2" rgba="0.7 0.7 0.8 1"/>
+          <body name="knee_L1" pos="0.13 0.0 0.0645">
+            <joint name="knee_joint_L1" type="hinge" axis="0 0 1"/>
+            <inertial 
+              pos="0.058408 0.0 0.009288" 
+              mass="0.049" 
+              fullinertia="0.000003796 0.000208824 0.000208730 0.0 -0.000007744 0.0"
+            />
+            <geom type="mesh" mesh="joint3_1" rgba="0.0 0.7 0.9 1"/>
+            <body name="ef_L1" pos="0.1485 0.0 0.012">
+              <inertial 
+                pos="0.0 0.0 0.0" 
+                mass="0.018" 
+                fullinertia="1.4e-6 1.4e-6 1.4e-6 0.0 0.0 0.0"
+              />
+              <!-- <geom type="sphere" size="0.015" rgba="0.2 0.2 0.2 1" priority="1" condim="6"/> -->
+              <geom type="sphere" size="0.015" rgba="0.2 0.2 0.2 1" margin="0.001" priority="1" solimp="0.8 1.0 0.0023 0.5 2" solref="0.01 1"/>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- Leg R2 (mirrored in x) -->
+      <body name="abad_R2" pos="-0.1065 -0.067 0.0" euler="0 -90 -90">
+        <joint name="abad_joint_R2" type="hinge" axis="0 0 1"/>
+        <inertial 
+          pos="-0.00606 -0.000018 0.058144" 
+          mass="0.309" 
+          fullinertia="0.000178705 0.000161337 0.0001003 -1.02e-7 -0.000003483 -5e-9"
+        />
+        <geom type="mesh" mesh="joint1" rgba="0.0 0.7 0.9 1"/>
+        <!-- <body name="hip_R2" pos="0.02145 0.0 0.059" euler="0 90 -90"> -->
+        <body name="hip_R2" pos="0.0215 0.0 0.059" euler="0 90 -90">
+          <joint name="hip_joint_R2" type="hinge" axis="0 0 1"/>
+          <inertial 
+            pos="0.034385 -0.000226 0.044820" 
+            mass="0.532" 
+            fullinertia="0.000279734 0.001715204 0.001731949 2.8e-7 -0.000253770 -1.2e-6"
+          />
+          <geom type="mesh" mesh="joint2" rgba="0.7 0.7 0.8 1"/>
+          <body name="knee_R2" pos="0.13 0.0 0.0645">
+            <joint name="knee_joint_R2" type="hinge" axis="0 0 1"/>
+            <inertial 
+              pos="0.058408 0.0 0.009288" 
+              mass="0.049" 
+              fullinertia="0.000003796 0.000208824 0.000208730 0.0 -0.000007744 0.0"
+            />
+            <geom type="mesh" mesh="joint3_1" rgba="0.0 0.7 0.9 1"/>
+            <body name="ef_R2" pos="0.1485 0.0 0.012">
+              <inertial 
+                pos="0.0 0.0 0.0" 
+                mass="0.018" 
+                fullinertia="1.4e-6 1.4e-6 1.4e-6 0.0 0.0 0.0"
+              />
+              <!-- <geom type="sphere" size="0.015" rgba="0.2 0.2 0.2 1" priority="1" condim="6"/> -->
+              <geom type="sphere" size="0.015" rgba="0.2 0.2 0.2 1" margin="0.001" priority="1" solimp="0.8 1.0 0.0023 0.5 2" solref="0.01 1"/>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- Leg L2 (mirrored in x) -->
+      <body name="abad_L2" pos="-0.1065 0.067 0.0" euler="0 -90 90">
+        <joint name="abad_joint_L2" type="hinge" axis="0 0 1"/>
+        <inertial 
+          pos="-0.00606 -0.000018 0.058144" 
+          mass="0.309" 
+          fullinertia="0.000178705 0.000161337 0.0001003 -1.02e-7 -0.000003483 -5e-9"
+        />
+        <geom type="mesh" mesh="joint1" rgba="0.0 0.7 0.9 1"/>
+        <!-- <body name="hip_L2" pos="0.02145 0.0 0.059" euler="0 90 90"> -->
+        <body name="hip_L2" pos="0.0215 0.0 0.059" euler="0 90 90">
+          <joint name="hip_joint_L2" type="hinge" axis="0 0 1"/>
+          <inertial 
+            pos="0.034385 -0.000226 0.044820" 
+            mass="0.532" 
+            fullinertia="0.000279734 0.001715204 0.001731949 2.8e-7 -0.000253770 -1.2e-6"
+          />
+          <geom type="mesh" mesh="joint2" rgba="0.7 0.7 0.8 1"/>
+          <body name="knee_L2" pos="0.13 0.0 0.0645">
+            <joint name="knee_joint_L2" type="hinge" axis="0 0 1"/>
+            <inertial 
+              pos="0.058408 0.0 0.009288" 
+              mass="0.049" 
+              fullinertia="0.000003796 0.000208824 0.000208730 0.0 -0.000007744 0.0"
+            />
+            <geom type="mesh" mesh="joint3_1" rgba="0.0 0.7 0.9 1"/>
+            <body name="ef_L2" pos="0.1485 0.0 0.012">
+              <inertial 
+                pos="0.0 0.0 0.0" 
+                mass="0.018" 
+                fullinertia="1.4e-6 1.4e-6 1.4e-6 0.0 0.0 0.0"
+              />
+              <!-- <geom type="sphere" size="0.015" rgba="0.2 0.2 0.2 1" priority="1" condim="6"/> -->
+              <geom type="sphere" size="0.015" rgba="0.2 0.2 0.2 1" margin="0.001" priority="1" solimp="0.8 1.0 0.0023 0.5 2" solref="0.01 1"/>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- Camera, lidar and IMU frames (kept as empty bodies with inertial placeholder) -->
+      <!-- <body name="camera_frame" pos="0.238 0.0 0.0">
+        <geom type="sphere" size="0.01" rgba="0 0.5 0.8 1"/>
+      </body>
+      <body name="scan" pos="0.15 0.0 0.115">
+        <geom type="sphere" size="0.01" rgba="0.8 0.3 0.3 1"/>
+      </body>
+      <body name="imu_link" pos="0 0 0">
+        <geom type="sphere" size="0.005" rgba="0.3 0.8 0.3 1"/>
+      </body> -->
+    </body>
+  </worldbody>
+
+  <!-- Actuators: simple motors mapped to the joint names (effort interface analog) -->
+  <actuator>
+    <!-- R1 -->
+    <motor joint="abad_joint_R1" gear="1" ctrlrange="-6 6" ctrllimited="true"/>
+    <motor joint="hip_joint_R1" gear="1" ctrlrange="-6 6" ctrllimited="true"/>
+    <motor joint="knee_joint_R1" gear="1" ctrlrange="-12 12" ctrllimited="true"/>
+    <!-- L1 -->
+    <motor joint="abad_joint_L1" gear="1" ctrlrange="-6 6" ctrllimited="true"/>
+    <motor joint="hip_joint_L1" gear="1" ctrlrange="-6 6" ctrllimited="true"/>
+    <motor joint="knee_joint_L1" gear="1" ctrlrange="-12 12" ctrllimited="true"/>
+    <!-- R2 -->
+    <motor joint="abad_joint_R2" gear="1" ctrlrange="-6 6" ctrllimited="true"/>
+    <motor joint="hip_joint_R2" gear="1" ctrlrange="-6 6" ctrllimited="true"/>
+    <motor joint="knee_joint_R2" gear="1" ctrlrange="-12 12" ctrllimited="true"/>
+    <!-- L2 -->
+    <motor joint="abad_joint_L2" gear="1" ctrlrange="-6 6" ctrllimited="true"/>
+    <motor joint="hip_joint_L2" gear="1" ctrlrange="-6 6" ctrllimited="true"/>
+    <motor joint="knee_joint_L2" gear="1" ctrlrange="-12 12" ctrllimited="true"/>
+  </actuator>
+
+  <sensor>
+    <accelerometer name="accelerometer" site="IMU"/>
+  </sensor>
+
+</mujoco>

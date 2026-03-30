@@ -1,0 +1,29 @@
+package mors_msgs;
+
+struct foot_cmd_msg
+{
+    double r1_pos[3];
+    double l1_pos[3];
+    double r2_pos[3];
+    double l2_pos[3];
+
+    double r1_vel[3];
+    double l1_vel[3];
+    double r2_vel[3];
+    double l2_vel[3];
+
+    double r1_acc[3];
+    double l1_acc[3];
+    double r2_acc[3];
+    double l2_acc[3];
+
+    double r1_kp[3];
+    double l1_kp[3];
+    double r2_kp[3];
+    double l2_kp[3];
+
+    double r1_kd[3];
+    double l1_kd[3];
+    double r2_kd[3];
+    double l2_kd[3];
+}

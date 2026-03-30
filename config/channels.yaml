@@ -1,0 +1,18 @@
+enable: "ENABLE"
+
+imu_data: "IMU_DATA"
+odometry: "ODOMETRY"
+contact_state: "CONTACT_SENSOR"
+
+robot_cmd: "ROBOT_CMD"
+mpc_cmd: "MPC_CMD"
+wbc_cmd: "WBC_CMD"
+servo_cmd: "SERVO_CMD"
+
+robot_state: "ROBOT_STATE"
+wbc_state: "WBC_STATE"
+servo_state: "SERVO_STATE"
+
+gait_phase: "GAIT_PHASE"
+gait_params: "GAIT_PARAMS"
+

@@ -1,0 +1,36 @@
+package mors_msgs;
+
+struct Body
+{
+    double position[3];
+    double orientation[3];
+    double orientation_quaternion[4]; // x y z w
+    double lin_vel[3];
+    double ang_vel[3];
+}
+
+struct Legs
+{
+    double r1_pos[3];
+    double l1_pos[3];
+    double r2_pos[3];
+    double l2_pos[3];
+
+    double r1_vel[3];
+    double l1_vel[3];
+    double r2_vel[3];
+    double l2_vel[3];
+
+    double r1_grf[3];
+    double l1_grf[3];
+    double r2_grf[3];
+    double l2_grf[3];
+
+    boolean contact_states[4];
+}
+
+struct robot_state_msg
+{
+    Body body; // wrt global
+    Legs legs; // wrt body
+}

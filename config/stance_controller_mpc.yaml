@@ -1,0 +1,47 @@
+# # HARDWARE
+# # BEST FOR 100 Hz TROT PACE BOUNDING 8 cm OBSTACLE kin_sch=x
+# horizon: 14
+# friction: 0.3
+# f_min: 5.0 #-90.0
+# f_max: 80.0 #90.0
+# Q: [8.0, 8.0, 12.0, # orientation
+#     40.0, 40.0, 400.0, # position
+#     0.01, 0.01, 0.2, # angular velocity
+#     1.0, 1.0, 0.2, 0.0] # linear velocity
+# # Q: [20.0, 20.0, 3.0, # orientation
+# #     100.0, 50.0, 1000.0, # position
+# #     0.0, 0.0, 0.8, # angular velocity
+# #     0.2, 0.2, 0.05, 0.0] # linear velocity
+# R: [1.0, 1.0, 1.0,  # orientation
+#     1.0, 1.0, 1.0,  # position
+#     1.0, 1.0, 1.0,  # angular velocity
+#     1.0, 1.0, 1.0]  # linear velocity
+
+# Q_gain: 0.4e1
+# R_gain: 7e-4
+
+# robot_height: 0.23
+
+# SIMULATION
+# BEST FOR 100 Hz TROT PACE BOUNDING 8 cm OBSTACLE kin_sch=x
+horizon: 16
+friction: 0.3315276317912778
+f_min: 4.1898636757693115 #-90.0
+f_max: 80 #90.0
+Q: [24.15005058616386, 24.15005058616386, 48.71352227697854, # orientation
+    43.872288964585856, 43.872288964585856, 458.28937122509376, # position
+    0.008552229711613821, 0.008552229711613821, 0.13623378703796826, # angular velocity
+    1.6583305787749383, 1.6583305787749383, 0.17327940542163445, 0.0] # linear velocity
+# Q: [20.0, 20.0, 3.0, # orientation
+#     100.0, 50.0, 1000.0, # position
+#     0.0, 0.0, 0.8, # angular velocity
+#     0.2, 0.2, 0.05, 0.0] # linear velocity
+R: [0.8606370134153708, 0.8606370134153708, 0.7096321884500194,  # orientation
+    0.8606370134153708, 0.8606370134153708, 0.7096321884500194,  # position
+    0.8606370134153708, 0.8606370134153708, 0.7096321884500194,  # angular velocity
+    0.8606370134153708, 0.8606370134153708, 0.7096321884500194]  # linear velocity
+ 
+Q_gain: 876.9447068213615
+R_gain: 0.0009616320217428904
+
+# robot_height: 0.2

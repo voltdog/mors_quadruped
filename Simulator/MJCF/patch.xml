@@ -1,0 +1,68 @@
+<mujoco model="{name} patch scene">
+  <include file="{path}" />
+
+  <statistic center="0 0 0.1" extent="0.8" meansize="0.04" />
+
+  <visual>
+    <headlight diffuse="0.0 0.0 0.0" ambient="0.0 0.0 0.0" specular="0.0 0.0 0.0" />
+    <global azimuth="220" elevation="-10" />
+    <quality shadowsize="8192" />
+  </visual>
+
+  <asset>
+    <texture
+      type="skybox"
+      builtin="gradient"
+      rgb1="0.2 0.2 0.9"
+      rgb2="0.1 0.6 0.2"
+      width="512"
+      height="3072"
+    />
+    <hfield name="hfield" file="assets/patch_hfield.png" size="10 10 2.0 0.1" />
+  </asset>
+
+  <worldbody>
+    <light 
+      name="sun" 
+      directional="true"
+      dir="-0.5 -0.4 -1" 
+      diffuse="0.4 0.4 0.4"
+      specular="0.2 0.2 0.2" 
+      ambient="0.01 0.01 0.01"
+      castshadow="true"
+    />
+
+    <light
+      name="spotlight1"
+      mode="targetbodycom"
+      target="base"
+      diffuse="0.2 0.2 0.2"
+      specular="0.1 0.1 0.1"
+      pos="0 -10 4"
+      cutoff="10"
+    />
+
+    <light
+      name="spotlight2"
+      mode="targetbodycom"
+      directional="true"
+      target="base"
+      diffuse="0.2 0.2 0.2"
+      specular="0.1 0.1 0.1"
+      pos="10 0 4"
+      dir="1 0 0"
+      cutoff="10"
+      castshadow="false"
+    />
+
+    <geom
+      name="floor"
+      type="hfield"
+      hfield="hfield"
+      contype="1"
+      conaffinity="1"
+      pos="0 0 -0.95"
+      rgba="0.35 0.28 0.2 1"
+    />
+  </worldbody>
+</mujoco>

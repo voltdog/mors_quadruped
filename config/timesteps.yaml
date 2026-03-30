@@ -1,0 +1,14 @@
+# timesteps in [sec]
+robot_mode_controller_dt: 0.005
+mors_logger_dt: 0.005
+
+leg_controller_dt: 0.001
+wbic_controller_dt: 0.001
+state_estimator_dt: 0.002
+locomotion_controller: 0.002
+
+stance_controller_dt: 0.01
+swing_controller_dt: 0.005
+gait_scheduler_dt: 0.002
+
+action_controller_dt: 0.005
