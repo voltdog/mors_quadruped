@@ -4,7 +4,7 @@ This repository contains the basic control stack for the [MORS](https://docs.vol
 
 Click on the picture below to watch the video:
 
-[![Watch the video](https://i9.ytimg.com/vi_webp/28EshOERJ94/mqdefault.webp?v=69bc15a6&sqp=CNTQms4G&rs=AOn4CLBik6T9q3Eg3SajVOnM9THA6gmlKw)](https://youtu.be/28EshOERJ94?si=7QsEtfh_oUpAAv3s)
+[![Watch the video](./pictures/video_preview.png)](https://youtu.be/28EshOERJ94?si=7QsEtfh_oUpAAv3s)
 
 The control algorithm is based on the following publications:
 
