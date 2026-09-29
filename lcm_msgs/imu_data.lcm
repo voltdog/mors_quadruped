@@ -1,0 +1,21 @@
+package mors_msgs;
+
+struct imu_lcm_data
+{
+    float orientation_quaternion[4];
+
+	float orientation_euler[3];
+	float orientation_covariance[9];
+
+	float angular_velocity[3];
+    float angular_velocity_covariance[9];
+
+    float linear_acceleration[3];
+    float linear_acceleration_covariance[9];
+
+    float magnetic_field[3];
+    float magnetic_field_covariance[9];
+
+    float temperature;
+    float temperature_variance;
+}

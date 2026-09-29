@@ -1,0 +1,11 @@
+package mors_msgs;
+
+struct depth_image_msg
+{
+    int64_t timestamp;      // Unix time in ns
+    int32_t width;          // image width in pixels
+    int32_t height;         // image height in pixels
+    int8_t compression;     // 0 = raw_u16_mm, 1 = zlib_u16_mm
+    int32_t data_size;      // payload size in bytes
+    byte data[data_size];   // row-major uint16 depth image in mm, 0 = invalid pixel
+}

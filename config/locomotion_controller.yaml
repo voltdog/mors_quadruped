@@ -1,0 +1,85 @@
+algorithm: "vision" # wbic vision dcm 
+
+stance_controller_mpc:
+  horizon: 16
+  friction: 0.3315276317912778
+  f_min: 4.1898636757693115
+  f_max: 80
+
+  Q: [24.15005058616386, 24.15005058616386, 48.71352227697854, # orientation
+      43.872288964585856, 43.872288964585856, 458.28937122509376, # position
+      0.05, 0.05, 0.136, # angular velocity
+      3.0, 3.0, 0.17327940542163445, 0.0] # linear velocity
+
+  R: [0.8606370134153708, 0.8606370134153708, 0.7096321884500194,  # orientation
+      0.8606370134153708, 0.8606370134153708, 0.7096321884500194,  # position
+      0.8606370134153708, 0.8606370134153708, 0.7096321884500194,  # angular velocity
+      0.8606370134153708, 0.8606370134153708, 0.7096321884500194]  # linear velocity
+
+  Q_gain: 600.0
+  R_gain: 0.002
+
+wbic:
+  Qf_entry: 0.565
+  Qa_entry: 4.182
+
+  body_ori_task_kp: 120.0
+  body_ori_task_kd: 26.0
+
+  body_pos_task_kp: 140.0
+  body_pos_task_kd: 26.0
+
+  tip_pos_task_kp: 230.0
+  tip_pos_task_kd: 28.0
+
+  joint_kp_stance: 2.0
+  joint_kd_stance: 0.4
+
+  joint_kp_swing: 6.0
+  joint_kd_swing: 0.25
+
+  # ground_fric, fz_min, fz_max берутся из stance_controller_mpc (friction, f_min, f_max)
+
+reference_generator:
+  c_freq: 0.5               # частота среза LPF референсных траекторий [Гц]
+  zero_vel_thresh: 0.01     # ниже этой скорости команда считается нулевой -> удержание позиции [м/с]
+  foot_valid_radius: 1.0    # стопа дальше этого расстояния от корпуса считается невалидной [м]
+
+swing_controller:
+  interleave_x: [0.0, 0.0, 0.0, 0.0]
+  interleave_y: [0.09, 0.09, 0.09, 0.09]
+  dz_near_ground: -0.05
+  rising_proportion: 0.35   # доля времени переноса на подъём стопы
+
+  # foot step planner
+  k1_fsp: 0.01
+
+  # line hold controller
+  # External world-frame lateral velocity correction before footstep/DCM generation.
+  # It captures the current straight line when locomotion starts and the operator
+  # does not command lateral velocity or yaw.
+  line_hold_enabled: true
+  line_hold_kp: 3.0
+  line_hold_kd: 0.2
+  line_hold_max_vel: 0.07
+  line_hold_lpf_alpha: 0.08
+  line_hold_lateral_deadband: 0.01
+  line_hold_yaw_deadband: 0.03
+
+  # x hold controller
+  # Holds longitudinal position when local X velocity command is near zero.
+  # This prevents forward/backward creep while standing in locomotion mode or
+  # moving sideways.
+  x_hold_enabled: true
+  x_hold_kp: 0.6
+  x_hold_kd: 0.15
+  x_hold_max_vel: 0.05
+  x_hold_lpf_alpha: 0.08
+  x_hold_deadband: 0.01
+
+gait_scheduler:
+  start_td_detecting: 0.55
+  delta_T_gt: 1.0           # длительность плавного перехода между походками [с]
+
+  contact_debounce: 2       # больше -> надёжнее против шума, но позже ловит ранний контакт
+  vz_contact_thresh: 0.2    # меньше -> строже отсев ложных касаний (стопа должна почти стоять)

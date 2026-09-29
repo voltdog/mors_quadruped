@@ -1,0 +1,76 @@
+camera:
+  fx: 212.101 #216.5
+  fy: 212.101 #216.5
+  cx: 213.576 #211.5
+  cy: 117.725 #119.5
+  fovy_deg: 58.0
+
+map:
+  cell_size: 0.015
+  global_size_x: 15.0
+  global_size_y: 15.0
+  rolling_enabled: true
+  # 0 -> auto = max(local_window_cells/2, 1), then clamped to map size.
+  rolling_margin_cells_x: 0
+  rolling_margin_cells_y: 0
+  local_window_cells_x: 100
+  local_window_cells_y: 100
+  height_min: -2.0
+  height_max: 2.0
+  height_resolution: 0.005
+
+depth:
+  min_depth: 0.105
+  max_depth: 1.00
+  enable_downsampling: true #false #
+  downsample_factor: 2
+  remove_outliers: true #false #true #
+  outlier_window_radius: 2
+  outlier_threshold_m: 0.12
+  min_neighbors_for_outlier: 3
+
+transforms:
+  use_camera_pose_params: true
+  camera_frame:
+    position_body_m: [0.2491, 0.0, 0.1201]
+    euler_deg: [45.0, 0.0, 90.0]
+  depth_camera:
+    position_camera_frame_m: [0.0175, -0.0208, 0.0] #[0.025, 0.0, 0.0] #[0.0125, 0.0, 0.0]
+    euler_deg: [-90.0, 0.0, 180.0]
+
+sync:
+  max_sync_dt_sec: 0.05
+  require_recent_robot_state: true
+
+height_correction:
+  enabled: true
+  window_size_m: 0.70
+  foot_contact_offset_m: 0.015
+  minimum_contacts: 2
+  max_map_age_sec: 1.0
+  residual_deadband_m: 0.005
+  max_residual_m: 0.10
+  max_residual_spread_m: 0.03
+  time_constant_sec: 0.30
+  max_step_per_frame_m: 0.005
+
+filtering:
+  opening_kernel_size: 5
+  opening_kernel_shape: ellipse
+
+gradient:
+  # Supported now: sobel
+  method: sobel
+  sobel_scale: 1.0
+
+traversability:
+  # gradient <= grad_thr_steppable -> STEPPABLE
+  # grad_thr_steppable < gradient <= grad_thr_unsteppable -> UNSTEPPABLE
+  # gradient > grad_thr_unsteppable -> IMPASSABLE
+  grad_thr_steppable: 0.5
+  grad_thr_unsteppable: 3.5
+  unknown_is_impassable: true
+
+runtime:
+  verbose: false
+  publish_pointcloud: false

@@ -1,0 +1,7 @@
+package mors_msgs;
+
+struct footsteps_msg
+{
+    double t;
+    double positions[6][4][3]; // [stride][leg R1,L1,R2,L2][x,y,z], world frame
+}

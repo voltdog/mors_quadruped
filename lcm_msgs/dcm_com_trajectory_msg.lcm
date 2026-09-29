@@ -1,0 +1,15 @@
+package mors_msgs;
+
+struct dcm_com_trajectory_msg
+{
+    double t;
+
+    int32_t x_com_count;
+    double x_com[x_com_count][3];
+
+    int32_t d_x_com_count;
+    double d_x_com[d_x_com_count][3];
+
+    int32_t dd_x_com_count;
+    double dd_x_com[dd_x_com_count][3];
+}

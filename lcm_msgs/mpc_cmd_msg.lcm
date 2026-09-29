@@ -1,0 +1,8 @@
+package mors_msgs;
+
+struct mpc_cmd_msg
+{
+    float cmd_pose[6]; // x y z roll pitch yaw
+    float cmd_vel[6];  // x y z roll pitch yaw
+    boolean active_legs[4];
+}

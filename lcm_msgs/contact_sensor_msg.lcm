@@ -1,0 +1,7 @@
+package mors_msgs;
+
+struct contact_sensor_msg
+{
+    boolean contact_states[4];
+    float raw_data[4];
+}

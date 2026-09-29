@@ -1,0 +1,17 @@
+package mors_msgs;
+
+struct pointcloud_msg
+{
+    int64_t timestamp;                 // publish time, Unix epoch in ns
+    int64_t depth_timestamp;           // source DEPTH_IMAGE timestamp, ns
+    int64_t robot_state_rx_timestamp;  // local ROBOT_STATE receive time, ns
+
+    float robot_position[3];               // x y z in world frame
+    float robot_orientation_quaternion[4]; // x y z w
+    float robot_yaw;                       // yaw in world frame
+
+    int32_t points_count;
+    float x[points_count];  // world X
+    float y[points_count];  // world Y
+    float z[points_count];  // world Z
+}

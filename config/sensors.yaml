@@ -1,0 +1,38 @@
+contact_sensor:
+  serial_port: /dev/ttyACM0
+  raw_data_divisor: 55.0
+  calibration_samples: 100
+  thresholds:
+    r1: 6.0
+    l1: 6.0
+    r2: 6.0
+    l2: 6.0
+
+realsense_camera:
+  stream:
+    # Intel RealSense T265 serial. Keep this fixed so the odometry module never
+    # probes or opens the D435i while both RealSense cameras are connected.
+    serial: "944222110122"
+
+realsense_camera_d435i:
+  stream:
+    # Leave empty when a single RealSense camera is connected.
+    # Set a serial number when several RealSense devices are connected.
+    serial: "147122073428"
+    width: 424
+    height: 240
+    # Camera stream FPS must be supported by librealsense for this resolution.
+    fps: 30
+    # 0 = publish every camera frame. Use 10 to reduce LCM/CPU load while camera runs at 30 FPS.
+    publish_fps: 30
+
+  compression:
+    enabled: true
+    zlib_level: 1
+
+  runtime:
+    verbose: false
+    # Публикация кадра глубины в LCM-канал depth_image из channels.yaml.
+    # Контуру высот она не нужна (кадр идёт внутри процесса), но без неё
+    # мост robot_state_viewer не выдаёт /camera/depth_image для rviz.
+    publish_depth_image: true

@@ -1,0 +1,10 @@
+package mors_msgs;
+
+struct enable_msg
+{
+    boolean locomotion_en;
+    boolean locomotion_reset;
+
+    boolean leg_controller_en;
+    boolean leg_controller_reset;
+}

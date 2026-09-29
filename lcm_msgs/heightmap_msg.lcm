@@ -1,0 +1,11 @@
+package mors_msgs;
+
+struct heightmap_msg
+{
+    float origin_x;       // center X of published local window in world frame
+    float origin_y;       // center Y of published local window in world frame
+    float yaw;            // robot yaw in world frame
+
+    int32_t data_size;    // flattened row-major local window size (H * W)
+    int16_t data[data_size];
+}
