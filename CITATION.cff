@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "MORS Quadruped Robot Control (MPC + WBIC)"
+repository-code: "https://github.com/voltdog/mors_quadruped"
+license: MIT
+authors:
+  - family-names: Danilov
+    given-names: Vladimir
+
+preferred-citation:
+  type: article
+  title: "MORS: BLDC based small sized quadruped robot"
+  authors:
+    - family-names: Budanov
+      given-names: Vladimir
+    - family-names: Danilov
+      given-names: Vladimir
+    - family-names: Kapytov
+      given-names: Dmitry
+    - family-names: Klimov
+      given-names: Konstantin
+  journal: "Journal of Computer and System Sciences International"
+  year: 2025
+  issue: 3
+  start: 152
+  end: 176
+  doi: "10.7868/S3034644425030146"
