@@ -15,8 +15,6 @@ This project is a ready-to-run, has modern stack (Ubuntu 24.04, ROS 2 Jazzy, MuJ
 
 Developed for the [MORS](https://docs.voltbro.ru/mors/) small-sized quadruped robot.
 
-![Watch the video](./pictures/vision.png)
-
 <table align='center'>
   <tr width="100%">
     <td width="33%"><img src="./pictures/gif_stairs.gif" width="256" height="157"/><p align='center'>Stairs</p></td>

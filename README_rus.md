@@ -15,8 +15,6 @@
 
 Разработан для малогабаритного четырехногого робота [МОРС](https://docs.voltbro.ru/mors/).
 
-![Watch the video](./pictures/vision.png)
-
 <table align='center'>
   <tr width="100%">
     <td width="33%"><img src="./pictures/gif_stairs.gif" width="256" height="157"/><p align='center'>Лестница</p></td>
