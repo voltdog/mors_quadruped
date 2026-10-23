@@ -1,10 +1,35 @@
-# MORS Quadruped Robot Control
+# Открытый контроллер локомоции четырехногого робота на основе MPC + WBIC
 
-Репозиторий содержит стек управления робособакой [МОРС](https://docs.voltbro.ru/mors/), использующий MPC/WBIC-контроллер и построитель карты высот на основе технического зрения. Для симуляции используется [MuJoCo](https://mujoco.org/). Задавать команды можно через ROS 2-интерфейс.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![ROS 2 Jazzy](https://img.shields.io/badge/ROS%202-Jazzy-blue)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=c%2B%2B&logoColor=white)
+![MuJoCo](https://img.shields.io/badge/sim-MuJoCo-orange)
+![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)
+
+[English](README.md) | **Русский**
+
+
+ Реализация на C++ **Convex Model Predictive Control (MPC)** и **Whole-Body Impulse Control (WBIC)** для четырехногих роботов, сделанных на подобие Mini Cheetah. Стек управления дополнительно включает **техническое зрение** для построения карты высот и выбора подходящих точек постановки стоп. Контроллер симулируется в **[MuJoCo](https://mujoco.org/)** и имеет **[ROS 2](https://docs.ros.org/en/jazzy/index.html)**-интерфейс.
+
+Проект готов к запуску, использует современный стек (Ubuntu 24.04, ROS 2 Jazzy, MuJoCo) и лучше всего подходит студентам и исследователям, которые хотят изучать, воспроизводить или развивать подходы к ходьбе на основе MPC + WBIC (от слепого движения по ровной поверхности до подъема по лестнице с использованием зрения), не создавая все с нуля.
+
+Разработан для малогабаритного четырехногого робота [МОРС](https://docs.voltbro.ru/mors/).
 
 ![Watch the video](./pictures/vision.png)
 
-Видеодемонстрация работы WBIC+MPC: [https://youtu.be/28EshOERJ94](https://youtu.be/28EshOERJ94?si=7QsEtfh_oUpAAv3s)
+<table align='center'>
+  <tr width="100%">
+    <td width="33%"><img src="./pictures/gif_stairs.gif" width="256" height="157"/><p align='center'>Лестница</p></td>
+    <td width="33%"><img src="./pictures/gif_boards.gif" width="256" height="157"/><p align='center'>Случайные доски</p></td>
+    <td width="33%"><img src="./pictures/gif_platform.gif" width="256" height="157"/><p align='center'>Препятствие 12 см</p></td>
+  </tr>
+</table>
+
+Ссылки на видеодемонстрации:
+- [WBIC+MPC в симуляции](https://youtu.be/28EshOERJ94?si=7QsEtfh_oUpAAv3s)
+- [Локомоция с техническим зрением в симуляции](https://youtu.be/7v6B-Jk0Igc?si=pUrnqSeW1RmC9CoY)
+- [Демонстрация на реальном роботе 1](https://youtu.be/D1mmPATnWWc?si=KQ7ofDW2pKZ5wxwb)
+- [Демонстрация на реальном роботе 2](https://youtu.be/FQ2Tz_Jyjow?si=RDnW18rQ6wOK19I2)
 
 Алгоритм управления основан на следующих публикациях:
 
@@ -14,12 +39,25 @@
 
 - Kim, Donghyun et al. “Vision Aided Dynamic Exploration of Unstructured Terrain with a Small-Scale Quadruped Robot.” 2020 IEEE International Conference on Robotics and Automation (ICRA) (2020): 2464-2470. [Link](https://dspace.mit.edu/entities/publication/580c4721-a611-4d73-8b53-53a58434aebf)
 
+## Возможности
+
+- **Convex MPC** с моделью единичного твердого тела (SRBD) для планирования сил реакции опоры
+- **WBIC** преобразует силы реакции из MPC и команды в декартовом пространстве в моменты в сочленениях, используя CLIK и QP-оптимизацию
+- **Техническое зрение** используется для построения карты высот по данным камеры глубины (проверено на Intel RealSense D435i); точки постановки стоп корректируются по высоте рельефа и смещаются на пригодные для опоры ячейки
+- **Слепой режим и режим со зрением** переключаются одним параметром конфигурации
+- Кинематика и динамика твердых тел рассчитываются с помощью **[Pinocchio](https://github.com/stack-of-tasks/pinocchio)**
+- **[Симуляция в MuJoCo](https://mujoco.org/)** с 7 тестовыми окружениями: stairs, ramp, boxes, stumps, boards, patch, flat
+- **[ROS 2 Jazzy](https://docs.ros.org/en/jazzy/index.html)**-интерфейс с управлением с клавиатуры
+- **[LCM](https://github.com/lcm-proj/lcm)** для внутреннего обмена данными
+- Параметры походки, такие как высота корпуса, время переноса ноги и высота шага, настраиваются на лету
+- Сохранение телеметрии в CSV, для последующего анализа [PlotJuggler](https://github.com/plotjuggler/plotjuggler) или любом другом ПО для построения графиков
+- Установка и запуск осуществляются одной командой (`install.sh`, `run.sh`)
 
 ## Требования
 
-- Ubuntu 24.x
+- Ubuntu 24.04
 - [ROS 2 Jazzy Desktop](https://docs.ros.org/en/jazzy/index.html) (`/opt/ros/jazzy`)
-- `sudo` доступ
+- доступ к `sudo`
 
 ## Быстрый старт
 
@@ -36,7 +74,7 @@ source ~/.bashrc
 
 ### Запуск
 
-Запуск симулятора вместе с контроллером шагания:
+Запуск симулятора вместе с контроллером локомоции:
 
 ```bash
 ./run.sh --sim
@@ -63,6 +101,12 @@ source ~/.bashrc
 
 ```bash
 ros2 run mors_keyboard_control mors_keyboard_control
+```
+
+Если вы запустили с ключом `--rviz`, то в третьем терминале запустите:
+
+```bash
+rviz2
 ```
 
 Rviz-конфиг для визуализации карты высот находится в `ros_ws/src/robot_state_viewer/rviz/rviz_config.rviz`.
@@ -108,9 +152,9 @@ Rviz-конфиг для визуализации карты высот нахо
 
 ## Качество рендеринга
 
-Доступны два режима качества рендеринга: `low` и `high`. По умолчанию используется `low`: в этом режиме отключены тени, отражения и skybox, что позволяет значительно повысить скорость симуляции на слабых машинах. Если у вас хорошая видеокарта и вы хотите видеть более качественную графику, переключитесь в режим `high`.
+Доступны два режима качества рендеринга: `low` и `high`. По умолчанию используется `low`: в этом режиме отключены тени, отражения и небо Это позволяет значительно повысить скорость симуляции на слабых компьютерах. Если у вас хорошая видеокарта и вы хотите видеть более качественную графику, переключитесь в режим `high`.
 
-Качество рендеринга задается параметром `render_quality` в файле `config/simulation.yaml`. Значение `high` включает тени, отражения и skybox.
+Качество рендеринга задается параметром `render_quality` в файле `config/simulation.yaml`. Значение `high` включает тени, отражения и визуализацию неба.
 
 ## Смена окружения робота
 

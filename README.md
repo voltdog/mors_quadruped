@@ -1,10 +1,35 @@
-# MORS Quadruped Robot Control
+# Open-Source MPC + WBIC Quadruped Locomotion Controller
 
-This repository contains the control stack for the [MORS](https://docs.voltbro.ru/mors/) quadruped robot, using an MPC/WBIC controller + Vision-based height map builder. [MuJoCo](https://mujoco.org/) is used for simulation. Commands can be sent through the ROS 2 interface.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![ROS 2 Jazzy](https://img.shields.io/badge/ROS%202-Jazzy-blue)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=c%2B%2B&logoColor=white)
+![MuJoCo](https://img.shields.io/badge/sim-MuJoCo-orange)
+![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)
+
+**English** | [Русский](README_rus.md)
+
+
+An open-source C++ implementation of **Convex Model Predictive Control (MPC)** and **Whole-Body Impulse Control (WBIC)** for quadruped robots, following the approach of the Mini Cheetah controllers. The stack includes **vision-based (perceptive) locomotion** with a height map and appropriate foothold selection. The controller is simulated in **[MuJoCo](https://mujoco.org/)** and has a **[ROS 2](https://docs.ros.org/en/jazzy/index.html)** interface.
+
+This project is a ready-to-run, has modern stack (Ubuntu 24.04, ROS 2 Jazzy, MuJoCo) and is best suitable for students and researchers who want to study, reproduce or extend MPC + WBIC locomotion (from blind walking on flat ground to perceptive stair climbing) without building everything from scratch.
+
+Developed for the [MORS](https://docs.voltbro.ru/mors/) small-sized quadruped robot.
 
 ![Watch the video](./pictures/vision.png)
 
-Here is the link to the video demonstration of the WBIC+MPC in action: [https://youtu.be/28EshOERJ94](https://youtu.be/28EshOERJ94?si=7QsEtfh_oUpAAv3s)
+<table align='center'>
+  <tr width="100%">
+    <td width="33%"><img src="./pictures/gif_stairs.gif" width="256" height="157"/><p align='center'>Stairs</p></td>
+    <td width="33%"><img src="./pictures/gif_boards.gif" width="256" height="157"/><p align='center'>Random Boards</p></td>
+    <td width="33%"><img src="./pictures/gif_platform.gif" width="256" height="157"/><p align='center'>Obstacle 12 cm</p></td>
+  </tr>
+</table>
+
+Here is the links to some video demonstrations:
+- [WBIC+MPC Sim](https://youtu.be/28EshOERJ94?si=7QsEtfh_oUpAAv3s)
+- [Perceptive Locomotion Sim](https://youtu.be/7v6B-Jk0Igc?si=pUrnqSeW1RmC9CoY)
+- [Hardware Demo 1](https://youtu.be/D1mmPATnWWc?si=KQ7ofDW2pKZ5wxwb)
+- [Hardware Demo 2](https://youtu.be/FQ2Tz_Jyjow?si=RDnW18rQ6wOK19I2)
 
 The control algorithm is based on the following publications:
 
@@ -14,10 +39,23 @@ The control algorithm is based on the following publications:
 
 - Kim, Donghyun et al. “Vision Aided Dynamic Exploration of Unstructured Terrain with a Small-Scale Quadruped Robot.” 2020 IEEE International Conference on Robotics and Automation (ICRA) (2020): 2464-2470. [Link](https://dspace.mit.edu/entities/publication/580c4721-a611-4d73-8b53-53a58434aebf)
 
+## Features
+
+- **Convex MPC** with a single rigid body model for ground reaction force planning
+- **WBIC** converts MPC reaction forces and task-space references into joint torques based on CLIK and QP optimization
+- **Perceptive locomotion** builds a height map from a depth camera (tested on Intel RealSense D435i); footholds are adjusted to terrain height and moved to steppable cells
+- **Blind and vision modes** are switchable with a single config parameter
+- Rigid-body kinematics and dynamics computed via **[Pinocchio](https://github.com/stack-of-tasks/pinocchio)**
+- **[MuJoCo simulation](https://mujoco.org/)** with 7 test terrains: stairs, ramp, boxes, stumps, boards, patch, flat
+- **[ROS 2 Jazzy](https://docs.ros.org/en/jazzy/index.html)** interface with keyboard teleoperation
+- **[LCM](https://github.com/lcm-proj/lcm)** for internal communication
+- Gait parameters such as body height, swing time and stride height tunable on the fly
+- Telemetry logger to CSV, ready for [PlotJuggler](https://github.com/plotjuggler/plotjuggler)
+- One-command install and launch (`install.sh`, `run.sh`)
 
 ## Requirements
 
-- Ubuntu 24.x
+- Ubuntu 24.
 - [ROS 2 Jazzy Desktop](https://docs.ros.org/en/jazzy/index.html) (`/opt/ros/jazzy`)
 - `sudo` access
 
