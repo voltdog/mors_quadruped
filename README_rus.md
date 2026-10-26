@@ -5,6 +5,7 @@
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=c%2B%2B&logoColor=white)
 ![MuJoCo](https://img.shields.io/badge/sim-MuJoCo-orange)
 ![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23662782.svg)](https://doi.org/10.5281/zenodo.23662782)
 
 [English](README.md) | **Русский**
 
